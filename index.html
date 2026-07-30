@@ -30,31 +30,31 @@
   .header { background: linear-gradient(135deg, var(--brand-900) 0%, var(--brand-700) 100%); color: #fff; padding: 2rem 1.5rem 1.6rem; text-align: center; position: relative; }
   .header::before { content:""; position:absolute; top:0; left:0; right:0; height:4px; background: linear-gradient(90deg, #3B82F6, #14489E); }
   .header h1 { font-size: 1.7rem; font-weight: 800; letter-spacing: 0.01em; margin-bottom: 0.4rem; }
-  .header .subtitle { font-size: 0.92rem; opacity: 0.9; max-width: 720px; margin: 0 auto; line-height: 1.6; }
+  .header .subtitle { font-size: 0.92rem; opacity: 0.9; max-width: 760px; margin: 0 auto; line-height: 1.6; }
   .header .badge { display: inline-block; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.32); border-radius: 20px; padding: 0.22rem 0.8rem; font-size: 0.75rem; margin-top: 0.7rem; backdrop-filter: blur(4px); }
   .container { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
-  .sc-overview { background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); padding:20px 24px; margin:1.5rem 0 18px; box-shadow:var(--sh-sm); }
+  .sc-overview { background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); padding:20px 24px; margin:1.5rem 0 14px; box-shadow:var(--sh-sm); }
   .sc-overview .ov-title { font-size:13px; font-weight:700; color:var(--brand-700); letter-spacing:.04em; margin-bottom:14px; display:flex; align-items:center; gap:6px; }
   .sc-ov-stats { display:flex; flex-wrap:wrap; gap:28px; }
   .sc-ov-stat { display:flex; flex-direction:column; }
   .sc-ov-stat b { font-size:24px; font-weight:800; color:var(--brand-900); line-height:1.1; }
   .sc-ov-stat span { font-size:12px; color:var(--ink-500); margin-top:4px; }
-  .cat-nav { position:sticky; top:56px; z-index:40; display:flex; flex-wrap:wrap; gap:10px; margin:0 0 18px; padding:10px 0; border-bottom:1px solid var(--line); background:rgba(255,255,255,.92); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
-  .cat-nav a { padding:0.4rem 0.9rem; border:1px solid var(--line); border-radius:var(--r-pill); font-size:0.82rem; font-weight:600; color:var(--ink-700); background:#fff; transition:all .15s; }
-  .cat-nav a:hover { border-color:var(--brand-500); color:var(--brand-600); text-decoration:none; }
-  .cat { margin-bottom: 2rem; }
-  .cat-head { display:flex; align-items:baseline; flex-wrap:wrap; gap:0.6rem; margin: 1.2rem 0 1rem; border-left: 4px solid var(--brand-600); padding-left: 0.8rem; }
-  .cat-title { font-size: 1.18rem; font-weight: 700; color: var(--brand-900); }
-  .cat-desc { font-size: 0.85rem; color: var(--ink-500); flex: 1; min-width: 200px; }
-  .cat-count { font-size: 0.78rem; font-weight: 700; color: var(--brand-600); background: var(--brand-100); border:1px solid #bfdbfe; border-radius: var(--r-pill); padding: 0.15rem 0.7rem; }
+  .filter-bar { position:sticky; top:56px; z-index:40; display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:0 0 18px; padding:10px 12px; border:1px solid var(--line); border-radius:var(--r-lg); background:rgba(255,255,255,.92); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
+  .filter-label { font-size:0.78rem; font-weight:700; color:var(--ink-500); margin-right:2px; }
+  .fbtn { padding:0.36rem 0.85rem; border:1px solid var(--line); border-radius:var(--r-pill); font-size:0.8rem; font-weight:600; color:var(--ink-700); background:#fff; cursor:pointer; transition:all .15s; }
+  .fbtn:hover { border-color:var(--brand-500); color:var(--brand-600); }
+  .fbtn.active { background:var(--brand-600); border-color:var(--brand-600); color:#fff; }
+  .filter-sep { width:1px; height:18px; background:var(--line); margin:0 4px; }
   .ex-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(340px,1fr)); gap: 1.1rem; }
   .ex-card { background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); padding:1.15rem 1.2rem; box-shadow:var(--sh-sm); transition:box-shadow .2s, transform .2s; display:flex; flex-direction:column; }
   .ex-card:hover { box-shadow:var(--sh-md); transform: translateY(-3px); }
+  .ex-card.ex-featured { border:1.5px solid var(--brand-500); box-shadow:0 10px 28px rgba(37,99,235,.18); }
   .ex-head { display:flex; flex-wrap:wrap; align-items:center; gap:0.5rem; margin-bottom:0.5rem; }
   .ex-status { font-size:0.68rem; font-weight:700; padding:0.15rem 0.5rem; border-radius:6px; letter-spacing:0.03em; }
   .st-upcoming { background:#ECFDF5; color:#059669; border:1px solid #A7F3D0; }
   .st-past { background:#F1F5F9; color:#64748B; border:1px solid #E2E8F0; }
-  .ex-name { font-size:1rem; font-weight:700; color:var(--ink-900); line-height:1.4; flex:1; min-width:160px; }
+  .st-tbd { background:#FEF3C7; color:#B45309; border:1px solid #FDE68A; }
+  .ex-name { font-size:0.98rem; font-weight:700; color:var(--ink-900); line-height:1.4; flex:1; min-width:160px; }
   .ex-meta { display:flex; flex-wrap:wrap; gap:0.4rem 1rem; font-size:0.8rem; color:var(--ink-700); margin-bottom:0.5rem; }
   .ex-meta b { color:var(--brand-900); }
   .ex-body { font-size:0.84rem; color:var(--ink-700); }
@@ -62,6 +62,7 @@
   .ex-body b { color:var(--brand-900); }
   .ex-tags { display:flex; flex-wrap:wrap; gap:0.35rem; margin-top:0.55rem; }
   .ex-tag { font-size:0.7rem; color:var(--ink-700); background:#F1F5F9; border:1px solid var(--line); border-radius:6px; padding:0.1rem 0.45rem; }
+  .ex-tag.feat { background:var(--brand-100); color:var(--brand-700); border-color:#BFD6FB; font-weight:700; }
   .ex-source { margin-top:0.6rem; font-size:0.76rem; }
   .ex-source a { color:var(--brand-600); word-break:break-all; }
   .footer { text-align:center; padding: 2rem 1rem; border-top:1px solid var(--line); background:#fff; }
@@ -137,7 +138,7 @@
 
 <header class="header">
   <h1>纺织服装展会信息库</h1>
-  <p class="subtitle">2026 全球纺织服装展会日历 · 面辅料 / 服装 / 纱线 / 针织全链路采购窗口</p>
+  <p class="subtitle">锦泓供应链内部参会台账 · 2025–2026 全量展会日历（面辅料 / 服装 / 纱线 / 针织 / 鞋配 / 潮玩文具 / 质量设备 / 出海）</p>
   <span class="badge">🗓️ 展会信息库 · 持续刷新</span>
 </header>
 
@@ -145,226 +146,1578 @@
   <div class="sc-overview">
     <div class="ov-title">📊 展会台账概览</div>
     <div class="sc-ov-stats">
-      <div class="sc-ov-stat"><b>13</b><span>收录展会</span></div>
-      <div class="sc-ov-stat"><b>10</b><span>即将举办</span></div>
-      <div class="sc-ov-stat"><b>3</b><span>分类板块</span></div>
+      <div class="sc-ov-stat"><b>100</b><span>收录展会（按开始日期升序）</span></div>
+      <div class="sc-ov-stat"><b>17</b><span>即将举办</span></div>
+      <div class="sc-ov-stat"><b>6</b><span>品类板块</span></div>
       <div class="sc-ov-stat"><b>2026-07-30</b><span>最近更新</span></div>
     </div>
   </div>
 
-  <nav class="cat-nav">
-    <a href="#featured">本期重点推荐</a><a href="#domestic-2026">2026 国内重点展会</a><a href="#overseas-2026">2026 重点境外展会</a>
+  <nav class="filter-bar">
+    <span class="filter-label">品类</span>
+    <button class="fbtn active" data-seg-btn="all">全部</button><button class="fbtn" data-seg-btn="面辅料服装">面辅料服装</button><button class="fbtn" data-seg-btn="纱线针织">纱线针织</button><button class="fbtn" data-seg-btn="鞋配箱包">鞋配箱包</button><button class="fbtn" data-seg-btn="潮玩文具">潮玩文具</button><button class="fbtn" data-seg-btn="质量设备">质量设备</button><button class="fbtn" data-seg-btn="出海">出海</button>
+    <span class="filter-sep"></span>
+    <span class="filter-label">年份</span>
+    <button class="fbtn active" data-year-btn="all">全部</button><button class="fbtn" data-year-btn="2025">2025</button><button class="fbtn" data-year-btn="2026">2026</button><button class="fbtn" data-year-btn="待定">待定</button>
+    <span class="filter-sep"></span>
+    <span class="filter-label">命中 <b id="resultCount">100</b> 场</span>
   </nav>
 
-    <section class="cat" id="featured">
-      <div class="cat-head">
-        <h2 class="cat-title">本期重点推荐</h2>
-        <p class="cat-desc">基于《布工厂》7·30 推文解读，8 月上海秋冬面辅料采购核心窗口</p>
-        <span class="cat-count">1 场</span>
-      </div>
-      <div class="ex-grid">
-      <div class="ex-card">
-        <div class="ex-head">
-          <span class="ex-status st-upcoming">即将举办</span>
-          <h3 class="ex-name">Intertextile 秋冬面辅料展</h3>
-        </div>
-        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">2026 Intertextile 中国国际纺织面料及辅料（秋冬）博览会</div>
-<div class="ex-meta"><span>📅 <b>档期</b> 2026-08-25 ~ 2026-08-27</span><span>📍 <b>城市</b> 上海</span><span>🏛️ <b>展馆</b> 国家会展中心（上海）</span></div>
-        <div class="ex-body">
-          <p><b>主办：</b>中国国际贸易促进委员会纺织行业分会、中国纺织信息中心、法兰克福展览（香港）有限公司</p>          <p><b>展品范围：</b>16 大专业展区：正装面料、时尚女装面料、休闲装面料、功能/运动装面料、跃动牛仔、衬衫面料、皮革毛绒面料、内衣面料、婚纱/礼服面料、婴童面料、花样设计、辅料视界、染料助剂、数智创新、相关产品及服务、媒体资讯。</p>          <p><b>展会亮点：</b>自 1995 年创办，享誉全球。2025 秋冬展吸引韩国、印度、日本、俄罗斯、美国、意大利、法国、土耳其、巴西、埃及、阿联酋等 123 个国家和地区 100,000+ 专业买家。特别设置「数智创新展区」，为展商与观众提供数字化、智能化技术升级方向。</p>          <p><b>同期活动：</b>2025 秋冬同期设「行业洞察区 / 对话纺织区 / 可持续发展区 / 热点交流区」四大论坛区，举办近 100 场研讨活动，现场+线上辐射超 10 万人次。</p>          <p><b>报名/联系：</b>报名：东纺云智（苏州）互联科技有限公司 ｜ 盛泽镇市场路东方纺织城 5 楼 D 区 ｜ 金立 13776166566 / 付永明 15995558318 / 丁钰 13771691221 / 金辉 15995536368 / 沈斐 13771661148 / 彭晶晶 13915400812 / 张琳 13616254708</p>
-        </div>
-        <div class="ex-tags"><span class="ex-tag">面辅料</span><span class="ex-tag">秋冬</span><span class="ex-tag">全球买家</span><span class="ex-tag">数智创新</span><span class="ex-tag">上海</span></div>
-<div class="ex-source">🔗 来源：<a href="https://mp.weixin.qq.com/s/gG52FyZGaj1S-LmiSM7HGw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/gG52FyZGaj1S-LmiSM7HGw</a></div>
-      </div>
-      </div>
-    </section>
-    <section class="cat" id="domestic-2026">
-      <div class="cat-head">
-        <h2 class="cat-title">2026 国内重点展会</h2>
-        <p class="cat-desc">Intertextile / CHIC 全国联展系列 + 柯桥纺博会，覆盖面辅料到成衣全链路</p>
-        <span class="cat-count">6 场</span>
-      </div>
-      <div class="ex-grid">
-      <div class="ex-card">
+  <div class="ex-grid">
+      <div class="ex-card" data-seg="纱线针织" data-year="2025" data-status="past">
         <div class="ex-head">
           <span class="ex-status st-past">已闭幕</span>
-          <h3 class="ex-name">Intertextile 春夏面辅料展</h3>
+          <h3 class="ex-name">中国上海纱线针织品展览会（秋冬）Spinexpo Shanghai</h3>
         </div>
-        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">中国国际纺织面料及辅料（春夏）博览会 Intertextile</div>
-<div class="ex-meta"><span>📅 <b>档期</b> 2026-03-11 ~ 2026-03-13</span><span>📍 <b>城市</b> 上海</span><span>🏛️ <b>展馆</b> 国家会展中心（上海）</span></div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-02-25 ~ 2025-02-27</span>
+          <span>📍 <b>地点</b> 上海世博展览馆</span>
+        </div>
         <div class="ex-body">
-          <p><b>主办：</b>中国国际贸易促进委员会纺织行业分会、中国纺织信息中心、法兰克福展览（香港）有限公司</p>          <p><b>展品范围：</b>7 大展馆、19 万㎡，集结全球 25 个国家和地区 3,000+ 展商；16 大专业展区覆盖女装、功能/运动、正装、休闲、牛仔、衬衫、皮革毛绒、内衣、婴童、婚纱礼服、数智创新、辅料视界等；8 大特色产业集群（绍兴、海宁许村、湖州、盛泽、晋江、图木舒克等）。</p>          <p><b>展会亮点：</b>与中国纺联春季联展联动 CHIC、Yarnexpo 纱线展、PH Value 针织展、intertextile 家纺展，实现纤维到成品全链对接。首发 2027 春夏流行趋势，设可持续创新专区、新技术创新空间、数字时尚创新空间、宠物服饰「萌宠时尚」专区。</p>
+          <p><b>建议参会：</b>吴银姬 张斌</p>
         </div>
-        <div class="ex-tags"><span class="ex-tag">面辅料</span><span class="ex-tag">春夏</span><span class="ex-tag">上海</span><span class="ex-tag">已闭幕</span></div>
-<div class="ex-source">🔗 来源：<a href="https://www.intertextile.com.cn" target="_blank" rel="noopener">https://www.intertextile.com.cn</a></div>
+        <div class="ex-tags"><span class="ex-tag">毛衫、纱线</span></div>
+
       </div>
-      <div class="ex-card">
+      <div class="ex-card" data-seg="面辅料服装" data-year="2025" data-status="past">
         <div class="ex-head">
           <span class="ex-status st-past">已闭幕</span>
-          <h3 class="ex-name">CHIC 春季服装展</h3>
+          <h3 class="ex-name">上海国际数字印花展览会DIGITAL TEXTILE PRINTING EXPO</h3>
         </div>
-        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">中国国际服装服饰博览会 CHIC（春季）</div>
-<div class="ex-meta"><span>📅 <b>档期</b> 2026-03-11 ~ 2026-03-13</span><span>📍 <b>城市</b> 上海</span><span>🏛️ <b>展馆</b> 国家会展中心（上海）1.1 / 2.1 / 3 / 4.1 馆及北馆</span></div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-03-04 ~ 2025-03-07</span>
+          <span>📍 <b>地点</b> 上海国家会展中心</span>
+        </div>
         <div class="ex-body">
-          <p><b>主办：</b>中国服装协会、中国国际贸易中心股份有限公司、中国国际贸易促进委员会纺织行业分会</p>          <p><b>展品范围：</b>12 大展区：品质男装、最美女装、国风服饰、冬季时装、户外运动、牛仔世界、设计力量、数智时尚、先锋潮流、童装与校服、配饰鞋包、CHIC 环球风尚展。</p>          <p><b>展会亮点：</b>亚洲最具规模与影响力的服装服饰专业品牌博览会，2026 春季以「找春天」为主题，11.7 万㎡、1,250+ 企业、17.8 万专业观众；与 Intertextile 春夏同期同地举办，品牌与面辅料高效联动。</p>
+          <p><b>建议参会：</b>杨薇华、金永日 战林华、张斌</p>
         </div>
-        <div class="ex-tags"><span class="ex-tag">服装</span><span class="ex-tag">春夏</span><span class="ex-tag">上海</span><span class="ex-tag">已闭幕</span></div>
-<div class="ex-source">🔗 来源：<a href="http://www.chic-expo.com" target="_blank" rel="noopener">http://www.chic-expo.com</a></div>
+        <div class="ex-tags"><span class="ex-tag">FG</span></div>
+
       </div>
-      <div class="ex-card">
+      <div class="ex-card" data-seg="纱线针织" data-year="2025" data-status="past">
         <div class="ex-head">
           <span class="ex-status st-past">已闭幕</span>
-          <h3 class="ex-name">Intertextile 大湾区展</h3>
+          <h3 class="ex-name">2025CHIC中国国际服装服饰博览会【CHIC2025春季】/2025年中国国际纺织纱线（春夏）展览会/2025中国国际纺织面料及辅料（春夏）博览会/2025中国国际家用纺织品及辅料（春夏）博览会</h3>
         </div>
-        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">大湾区国际纺织面料及辅料博览会 Intertextile</div>
-<div class="ex-meta"><span>📅 <b>档期</b> 2026-06-09 ~ 2026-06-11</span><span>📍 <b>城市</b> 深圳</span><span>🏛️ <b>展馆</b> 深圳会展中心（福田区）</span></div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-03-11 ~ 2025-03-13</span>
+          <span>📍 <b>地点</b> 上海国家会展中心</span>
+        </div>
         <div class="ex-body">
-          <p><b>主办：</b>法兰克福展览（香港）有限公司、中国国际贸易促进委员会纺织行业分会、中国纺织信息中心</p>          <p><b>展品范围：</b>面向粤港澳大湾区及华南产业集群的面辅料专业展，与大湾区国际纺织纱线展同期举办，聚焦快反供应链与时尚设计。</p>          <p><b>展会亮点：</b>承接春夏与秋冬之间的补单、开发窗口，便于华南品牌与面辅料供应商就近对接。</p>
+          <p><b>建议参会：</b>全体</p>
         </div>
-        <div class="ex-tags"><span class="ex-tag">面辅料</span><span class="ex-tag">大湾区</span><span class="ex-tag">深圳</span><span class="ex-tag">已闭幕</span></div>
-<div class="ex-source">🔗 来源：<a href="https://www.intertextile.com.cn" target="_blank" rel="noopener">https://www.intertextile.com.cn</a></div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装</span></div>
+
       </div>
-      <div class="ex-card">
+      <div class="ex-card" data-seg="鞋配箱包" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">上海国际生活时尚内衣展览会SUE/上海袜交会-上海国际袜业采购交易展CHPE/上海国际帽子围巾手套展览会HSGE</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-03-24 ~ 2025-03-26</span>
+          <span>📍 <b>地点</b> 上海世博展览馆</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>崔守旺</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">鞋配</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="纱线针织" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">东莞国际服装皮革及鞋业供应链展览会CDITE/东莞国际纺织品印花工业展览会Textile Printing/东莞国际皮革鞋机鞋材展览会DLSF/东莞国际流行面辅料及纱线展览会DGtextile</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-03-30 ~ 2025-04-01</span>
+          <span>📍 <b>地点</b> 广东现代国际展览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>崔守旺</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">鞋配</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="质量设备" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">中国国际染料工业及有机颜料展览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-04-16 ~ 2025-04-18</span>
+          <span>📍 <b>地点</b> 上海世博展览馆</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>@金永日@战林华</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">染料/染色 环保染料、数码印花墨水、染整助剂</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="鞋配箱包" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">福建晋江鞋业展晋江鞋体博会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-04-19 ~ 2025-04-22</span>
+          <span>📍 <b>地点</b> 福建晋江国际会展中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>崔守旺</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">鞋配</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">杭州国际纺织供应链工业博览会TSCI/杭州国际印染工业暨功能性后整理应用展TSCI/杭州国际服装电商供应链博览会TSCI/杭州国际数码印花工业应用展TSCI</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-04-21 ~ 2025-04-23</span>
+          <span>📍 <b>地点</b> 杭州大会展中心（新馆）</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="纱线针织" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2025中国（义乌）国际针织供应链博览会 PH Value义乌展</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-04-27 ~ 2025-04-29</span>
+          <span>📍 <b>地点</b> 义乌国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>@黄永辉@杨薇华@崔守旺@张斌@吴银姬</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="潮玩文具" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">春季广交会三期：玩具及孕婴童、服装家用纺织品、文具、医疗保健、宠物用品</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-05-01 ~ 2025-05-05</span>
+          <span>📍 <b>地点</b> 广交会展馆-广州琶洲馆</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>何丽</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">婴童</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">上海国际童装产业展览会-童博会CWE/上海国际运动时尚潮服展GOFE/上海国际纺织新材料博览会TSE/上海职业装·团服展览会LINK FASHION/上海国际牛仔产业展览会SDE</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-05-08 ~ 2025-05-10</span>
+          <span>📍 <b>地点</b> 上海国家会展中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="纱线针织" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">广州服装服饰供应链展-广州纺织面料辅料及纱线展/广州国际箱包皮具展览会CBE/广州国际鞋业展览会CSE</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-05-14 ~ 2025-05-16</span>
+          <span>📍 <b>地点</b> 广州南丰国际会展中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="质量设备" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">第七届全国纺织标准质量技术峰会暨2025年新标准研讨会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-06-10 ~ 2025-06-11</span>
+          <span>📍 <b>地点</b> 天津空港白云酒店</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>顾飞、茆荣雷</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">质量</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="质量设备" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2025年全国纺织供应链大会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-06-11 ~ 2025-06-13</span>
+          <span>📍 <b>地点</b> 天津空港白云酒店</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">质量、面料、服装</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="纱线针织" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">深圳大湾区国际纺织纱线展览会yarnexpo/深圳国际纺织面料及辅料展览会Intertextile Shenzhen/深圳国际服装服饰展览会CHIC</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-06-11 ~ 2025-06-13</span>
+          <span>📍 <b>地点</b> 深圳福田会展中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="鞋配箱包" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2025杭州玩具展览会&amp;潮流玩具展</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-06-13 ~ 2025-06-15</span>
+          <span>📍 <b>地点</b> 杭州国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>崔守旺、鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">鞋配</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="鞋配箱包" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">中国（上海）国际箱包展览会SHANGHAI BAG SHOW/上海鞋博会-上海国际鞋业展览会SISE/上海国际礼品及家居用品展-华礼展CHN GIFT EXPO</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-06-17 ~ 2025-06-19</span>
+          <span>📍 <b>地点</b> 上海新国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>崔守旺</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">鞋配</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">第34届中国（杭州）国际纺织服装供应链博览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-06-25 ~ 2025-06-27</span>
+          <span>📍 <b>地点</b> 杭州国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="纱线针织" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">山东青岛国际纺织展-山东纺织博览会CSITE/青岛国际纺织品印花工业展览会Textile Printing/青岛国际服装供应链展览会QICE/青岛国际皮革鞋机鞋材展览会QLSF/青岛国际面料辅料及纱线展览会QDtextile</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-06-26 ~ 2025-06-28</span>
+          <span>📍 <b>地点</b> 青岛国际会展中心（红岛馆）</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2025上海户外及运动用品展ISPO</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-07-04 ~ 2025-07-06</span>
+          <span>📍 <b>地点</b> 上海新国际博览中心 W3-W5</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">ALL</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="潮玩文具" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">千岛QDF潮玩展</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-07-04 ~ 2025-07-06</span>
+          <span>📍 <b>地点</b> 上海新国际博览中心 N1-N3</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>崔守旺、鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">潮玩</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="潮玩文具" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">中国（上海）童装展览会CBME/上海孕婴童展览会CBME</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-07-16 ~ 2025-07-18</span>
+          <span>📍 <b>地点</b> 上海国家会展中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>何丽</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">婴童</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="潮玩文具" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">全球授权展·上海站（LEC）</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-07-16 ~ 2025-07-18</span>
+          <span>📍 <b>地点</b> 国家会展中心（上海）</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>崔守旺、鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">潮玩</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="潮玩文具" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">PTS北京国际潮流玩具展「POP TOY SHOW BEIJING」</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-08-01 ~ 2025-08-03</span>
+          <span>📍 <b>地点</b> 北京国家会议中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>崔守旺、鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">潮玩</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="质量设备" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">英柏-羽绒质量管控及服装常见+功能性项目应用专题讲座</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-08-01 ~ 2025-08-01</span>
+          <span>📍 <b>地点</b> 上海市长宁区虹桥路1446号 上海古北湾大酒店5楼贵宾厅4</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>茆荣雷、顾飞、池正爱</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">质量、羽绒</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2025上海国际功能性纺织品（秋冬）展览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-08-06 ~ 2025-08-07</span>
+          <span>📍 <b>地点</b> 上海世博展览馆H3</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>金永日、黄瑜、黄永辉、战林华、何丽</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">ALL</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="纱线针织" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2025第45届上海国际流行纱线展示会（SPINEXPO）上海</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-08-19 ~ 2025-08-21</span>
+          <span>📍 <b>地点</b> 上海世博展览馆</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>张斌、吴银姬</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">纱线</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://spinexpo.corpit.com.cn/spinexpo202508/web/#/" target="_blank" rel="noopener">https://spinexpo.corpit.com.cn/spinexpo202508/web/#/</a></div>
+      </div>
+      <div class="ex-card" data-seg="纱线针织" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">中国上海国际纺织纱线展览会（秋冬）yarnexpo/上海国际服装服饰展览会秋季CHIC/中国上海国际纺织面料及辅料展览会（秋冬）Intertextile Shanghai</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-09-02 ~ 2025-09-04</span>
+          <span>📍 <b>地点</b> 上海国家会展中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://reg.chicfair.com/pc/#/registration?registerLinkId=1937354683462045698&amp;sourceCode=Web-cn" target="_blank" rel="noopener">https://reg.chicfair.com/pc/#/registration?registerLinkId=1937354683462045698&amp;sourceCode=Web-cn</a></div>
+      </div>
+      <div class="ex-card" data-seg="鞋配箱包" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">中国国际皮革展-上海皮革展 ALL CHINA LEATHER EXHIBITION</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-09-03 ~ 2025-09-05</span>
+          <span>📍 <b>地点</b> 上海新国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>池正爱 张哲荣 崔守旺</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装 鞋配</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://aclevip.com/gzdj" target="_blank" rel="noopener">https://aclevip.com/gzdj</a></div>
+      </div>
+      <div class="ex-card" data-seg="鞋配箱包" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">诸暨大唐国际袜业展-大唐袜博会CIHIE</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-09-09 ~ 2025-09-11</span>
+          <span>📍 <b>地点</b> 绍兴诸暨国际商贸城</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>崔守旺</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">鞋配</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.zhanxun.cn/expo/ticket/2797.html?src=zzwbh-wyz-wyz&amp;uid=bing" target="_blank" rel="noopener">https://www.zhanxun.cn/expo/ticket/2797.html?src=zzwbh-wyz-wyz&amp;uid=bing</a></div>
+      </div>
+      <div class="ex-card" data-seg="质量设备" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">中国(上海)国际缝制设备展览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-09-24 ~ 2025-09-27</span>
+          <span>📍 <b>地点</b> 上海新国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>张斌、茆荣雷、陈国玲</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">设备</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://ezt3.eastfair.com/pc/#/registration?registerLinkId=1897824703741329410" target="_blank" rel="noopener">https://ezt3.eastfair.com/pc/#/registration?registerLinkId=1897824703741329410</a></div>
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">广州国际服装供应链博览会 FEC</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-09-25 ~ 2025-09-27</span>
+          <span>📍 <b>地点</b> 广交会展馆</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="http://www.jn-tex.com/page116" target="_blank" rel="noopener">http://www.jn-tex.com/page116</a></div>
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2025年北京服装品牌展览会 LINK FASHION</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-10-13 ~ 2025-10-15</span>
+          <span>📍 <b>地点</b> 北京国家会议中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">服装</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.shifair.com/ticketsDetails/8260.html" target="_blank" rel="noopener">https://www.shifair.com/ticketsDetails/8260.html</a></div>
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">上海国际贴身时尚原辅料展</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-10-13 ~ 2025-10-14</span>
+          <span>📍 <b>地点</b> 上海展览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.interfiliere-shanghai.cn/" target="_blank" rel="noopener">https://www.interfiliere-shanghai.cn/</a></div>
+      </div>
+      <div class="ex-card" data-seg="潮玩文具" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2025 CTE中国玩具展</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-10-15 ~ 2025-10-17</span>
+          <span>📍 <b>地点</b> 上海新国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>崔守旺、鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">潮玩</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="潮玩文具" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">汕头-澄海国际玩具礼品博览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-10-23 ~ 2025-10-26</span>
+          <span>📍 <b>地点</b> 汕头国际会展中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>崔守旺、鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">潮玩</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.jufair.com/exhibition/5528.html" target="_blank" rel="noopener">https://www.jufair.com/exhibition/5528.html</a></div>
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">广州创新面料、时尚服装展览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-10-31 ~ 2025-11-04</span>
+          <span>📍 <b>地点</b> 广州灵感创新展馆</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">服装、面辅料</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.jufair.com/exhibition/17439.html" target="_blank" rel="noopener">https://www.jufair.com/exhibition/17439.html</a></div>
+      </div>
+      <div class="ex-card" data-seg="质量设备" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">GITE 2025广州（国际）纺织设备及面辅料展</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-11-03 ~ 2025-11-05</span>
+          <span>📍 <b>地点</b> 广州空港博览中心(机场展馆)</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">纺织设备、面辅料</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.zhanxun.cn/expo/3195.html" target="_blank" rel="noopener">https://www.zhanxun.cn/expo/3195.html</a></div>
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">大连国际纺织服装供应链展览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-11-05 ~ 2025-11-07</span>
+          <span>📍 <b>地点</b> 大连世界博览广场</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">服装、面辅料</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.shifair.com/exhibitionDetails/2953.html" target="_blank" rel="noopener">https://www.shifair.com/exhibitionDetails/2953.html</a></div>
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2025柯桥国际纺织工业展览会暨纺织品印花展</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-11-06 ~ 2025-11-08</span>
+          <span>📍 <b>地点</b> 绍兴国际会展中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://form.zhaozhanwang.cn/form/xkazX7dJ?flag=BDPC3&amp;bd_vid=8299593137005777824" target="_blank" rel="noopener">https://form.zhaozhanwang.cn/form/xkazX7dJ?flag=BDPC3&amp;bd_vid=8299593137005777824</a></div>
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">厦门国际服装供应链展览会XIGE/厦门国际纺织面料及辅料展览会XIFAE</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-11-07 ~ 2025-11-09</span>
+          <span>📍 <b>地点</b> 厦门国际会展中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.shifair.com/ticketsDetails/2916.html" target="_blank" rel="noopener">https://www.shifair.com/ticketsDetails/2916.html</a></div>
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">广州国际网印喷印及数码智能印花技术展 DSPE CHINA</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-11-10 ~ 2025-11-12</span>
+          <span>📍 <b>地点</b> 广州·广交会展馆B区</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">纺织印花</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.shifair.com/ticketsDetails/5916.html" target="_blank" rel="noopener">https://www.shifair.com/ticketsDetails/5916.html</a></div>
+      </div>
+      <div class="ex-card" data-seg="纱线针织" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2025青岛(国际)面辅料纱线采购交易会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-11-13 ~ 2025-11-15</span>
+          <span>📍 <b>地点</b> 青岛国际会展中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">服装、纱线、面辅料</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.zhanxun.cn/expo/3109.html" target="_blank" rel="noopener">https://www.zhanxun.cn/expo/3109.html</a></div>
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2025 SS26深圳原创时装周</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-11-19 ~ 2025-11-21</span>
+          <span>📍 <b>地点</b> 深圳会展中心（福田）</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">服装</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.zhanxun.cn/expo/80.html" target="_blank" rel="noopener">https://www.zhanxun.cn/expo/80.html</a></div>
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">深圳国际服装供应链展-时尚之源深圳展 FASHION SOURCE</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-11-19 ~ 2025-11-21</span>
+          <span>📍 <b>地点</b> 深圳福田会展中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">服装</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://system.fashionsource.cn/EE/visitorVue/index.html?id=cd86de59-f8cc-11ef-acb6-00163e0a44ac0d9c9b&amp;lang=1&amp;dsID=2af78233-d8f2-11e9-ae19-00163e047b1859cc33#/visitor/baseInfo" target="_blank" rel="noopener">https://system.fashionsource.cn/EE/visitorVue/index.html?id=cd86de59-f8cc-11ef-acb6-00163e0a44ac0d9c9b&amp;lang=1&amp;dsID=2af78233-d8f2-11e9-ae19-00163e047b1859cc33#/visitor/baseInfo</a></div>
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2025南京国际纺织服装供应链博览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-11-24 ~ 2025-11-26</span>
+          <span>📍 <b>地点</b> 南京国际展览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">服装</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.zhanxun.cn/expo/1237.html" target="_blank" rel="noopener">https://www.zhanxun.cn/expo/1237.html</a></div>
+      </div>
+      <div class="ex-card" data-seg="鞋配箱包" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2025厦门国际鞋业博览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-11-27 ~ 2025-11-29</span>
+          <span>📍 <b>地点</b> 厦门国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>崔守旺</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">鞋配</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.zhanxun.cn/expo/2867.html" target="_blank" rel="noopener">https://www.zhanxun.cn/expo/2867.html</a></div>
+      </div>
+      <div class="ex-card" data-seg="质量设备" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2025福建纺博会•厦门站</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-11-27 ~ 2025-11-29</span>
+          <span>📍 <b>地点</b> 厦门国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">服装、印花、设备</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.10100.com/hd/15141054" target="_blank" rel="noopener">https://www.10100.com/hd/15141054</a></div>
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2025中国（杭州）国际品牌内衣展览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-12-04 ~ 2025-12-06</span>
+          <span>📍 <b>地点</b> 杭州国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>崔守旺</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">服装</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.zhanxun.cn/expo/737.html" target="_blank" rel="noopener">https://www.zhanxun.cn/expo/737.html</a></div>
+      </div>
+      <div class="ex-card" data-seg="鞋配箱包" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2025中国（杭州）国际帽子围巾手套展览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-12-04 ~ 2025-12-06</span>
+          <span>📍 <b>地点</b> 杭州国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>崔守旺</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">帽子、围巾、手套</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.zhanxun.cn/expo/2850.html" target="_blank" rel="noopener">https://www.zhanxun.cn/expo/2850.html</a></div>
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2025杭州国际纺织服装供应链博览会 SCM</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-12-04 ~ 2025-12-06</span>
+          <span>📍 <b>地点</b> 杭州国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">服装</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.tex-scm.com/index.php?c=category&amp;id=38" target="_blank" rel="noopener">https://www.tex-scm.com/index.php?c=category&amp;id=38</a></div>
+      </div>
+      <div class="ex-card" data-seg="纱线针织" data-year="2025" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">上海国际纺织工业展</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2025-12-16 ~ 2025-12-19</span>
+          <span>📍 <b>地点</b> 上海新国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">纱线、设备、印花</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.zhanxun.cn/expo/1859.html" target="_blank" rel="noopener">https://www.zhanxun.cn/expo/1859.html</a></div>
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2026亚洲运动用品与时尚展（北京站）</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-01-09 ~ 2026-01-11</span>
+          <span>📍 <b>地点</b> 北京国家会议中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">ALL</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.zhanxun.cn/expo/1256.html" target="_blank" rel="noopener">https://www.zhanxun.cn/expo/1256.html</a></div>
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">上海国际数字印花展览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-03-04 ~ 2026-03-07</span>
+          <span>📍 <b>地点</b> 上海国家会展中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">FG</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://app.tonggao.info/visitor/#/?app=tg8d78b9becd1c604&amp;lang=CN&amp;r=202602021609549543583" target="_blank" rel="noopener">https://app.tonggao.info/visitor/#/?app=tg8d78b9becd1c604&amp;lang=CN&amp;r=202602021609549543583</a></div>
+      </div>
+      <div class="ex-card" data-seg="纱线针织" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2026上海国际功能性纺织品（春夏）展览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-03-05 ~ 2026-03-06</span>
+          <span>📍 <b>地点</b> 上海世博展览馆H3馆</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">功能性面料、辅料、纱线</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://oa.tonggao.info/CN/Customer/Front?projectCode=de6ac5a742d2d6cf&amp;source=PD-web" target="_blank" rel="noopener">https://oa.tonggao.info/CN/Customer/Front?projectCode=de6ac5a742d2d6cf&amp;source=PD-web</a></div>
+      </div>
+      <div class="ex-card" data-seg="纱线针织" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2026上海国际流行纱线展览会（春夏季）</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-03-10 ~ 2026-03-12</span>
+          <span>📍 <b>地点</b> 上海世博展览馆</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">纱线</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://spinexpo.corpit.com.cn/spinexpo202603/web/#/login" target="_blank" rel="noopener">https://spinexpo.corpit.com.cn/spinexpo202603/web/#/login</a></div>
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2026第四届迪培思纺织印花+刺绣技术展</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-03-10 ~ 2026-03-12</span>
+          <span>📍 <b>地点</b> 广交会展馆</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">FG</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://visitor.dpes.cn/" target="_blank" rel="noopener">https://visitor.dpes.cn/</a></div>
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">中国国际服装服饰博览会 2026中国国际纺织面料及辅料（春夏）博览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-03-11 ~ 2026-03-13</span>
+          <span>📍 <b>地点</b> 上海国家会展中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">服装</span></div>
+<div class="ex-source">📝 报名方式：CHIC：https://dwz.cn/W9VnOHSn | Intertextile：https://ezt3.eastfair.com/dingzhi/pc-registration-mianliao/#/registration?registerLinkId=1965683714701385729&amp;sourceCode=2603-2059</div>
+      </div>
+      <div class="ex-card" data-seg="潮玩文具" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">第4届上海国际文创展 &amp; 潮玩展 (IPX 潮玩展)</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-03-12 ~ 2026-03-14</span>
+          <span>📍 <b>地点</b> 上海新国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">玩具/潮玩</span></div>
+<div class="ex-source">📝 报名方式：上海文创展微信公众号，参观登记</div>
+      </div>
+      <div class="ex-card" data-seg="潮玩文具" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2026上海国际玩具与潮玩展览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-03-19 ~ 2026-03-21</span>
+          <span>📍 <b>地点</b> 上海新国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">玩具/潮玩</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="http://www.shanghaitoyshow.com/OnlineBuyerRegistration.html" target="_blank" rel="noopener">http://www.shanghaitoyshow.com/OnlineBuyerRegistration.html</a></div>
+      </div>
+      <div class="ex-card" data-seg="鞋配箱包" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2026第20届上海国际袜业采购交易会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-03-23 ~ 2026-03-25</span>
+          <span>📍 <b>地点</b> 上海世博展览馆</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">袜子</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://oa.tonggao.info/CN/Customer/Front?projectCode=f655481b2cbc847b" target="_blank" rel="noopener">https://oa.tonggao.info/CN/Customer/Front?projectCode=f655481b2cbc847b</a></div>
+      </div>
+      <div class="ex-card" data-seg="鞋配箱包" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2026第8届上海国际帽子围巾手套展</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-03-23 ~ 2026-03-25</span>
+          <span>📍 <b>地点</b> 上海世博展览馆</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">帽子、围巾、手套</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://expopromo.cn/zh/RWpW1mmn5m/event/78260/register/tickets/" target="_blank" rel="noopener">https://expopromo.cn/zh/RWpW1mmn5m/event/78260/register/tickets/</a></div>
+      </div>
+      <div class="ex-card" data-seg="鞋配箱包" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">上海国际时尚饰品展</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-03-23 ~ 2026-03-25</span>
+          <span>📍 <b>地点</b> 上海世博展览馆</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">配饰</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://expopromo.cn/zh/siaTltvz7S/event/78264/register/tickets/" target="_blank" rel="noopener">https://expopromo.cn/zh/siaTltvz7S/event/78264/register/tickets/</a></div>
+      </div>
+      <div class="ex-card" data-seg="潮玩文具" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2026嗨创周·泛母婴生态创新周</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-03-24 ~ 2026-03-25</span>
+          <span>📍 <b>地点</b> 杭州国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">文具</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://hi.shms-expo.com/reg.php?types=2" target="_blank" rel="noopener">https://hi.shms-expo.com/reg.php?types=2</a></div>
+      </div>
+      <div class="ex-card" data-seg="潮玩文具" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2026宁波国际文具展</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-03-25 ~ 2026-03-27</span>
+          <span>📍 <b>地点</b> 宁波国际会展中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">文具</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.jufair.com/ticket/8183.html" target="_blank" rel="noopener">https://www.jufair.com/ticket/8183.html</a></div>
+      </div>
+      <div class="ex-card" data-seg="鞋配箱包" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2026第四届杭州国际潮流玩具展览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-03-27 ~ 2026-03-29</span>
+          <span>📍 <b>地点</b> 杭州国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">配饰</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://hteshow.mike-x.com/JMzKz" target="_blank" rel="noopener">https://hteshow.mike-x.com/JMzKz</a></div>
+      </div>
+      <div class="ex-card" data-seg="潮玩文具" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2026第38届国际玩具及潮玩（深圳）展览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-04-09 ~ 2026-04-11</span>
+          <span>📍 <b>地点</b> 深圳国际会展中心（宝安新馆）</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">玩具/潮玩</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://dj.chinatoyfair.com/toy/pc/index/index.html?id=58&amp;source=lt_pc" target="_blank" rel="noopener">https://dj.chinatoyfair.com/toy/pc/index/index.html?id=58&amp;source=lt_pc</a></div>
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2026 TSCI杭州国际数码印花工业应用展</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-04-22 ~ 2026-04-24</span>
+          <span>📍 <b>地点</b> 杭州大会展中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">纺织印花</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.shifair.com/ticketsDetails/4047.html" target="_blank" rel="noopener">https://www.shifair.com/ticketsDetails/4047.html</a></div>
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">GESC 2026中国（杭州）国际服装供应链博览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-04-22 ~ 2026-04-24</span>
+          <span>📍 <b>地点</b> 杭州大会展中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">服装</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://expopromo.cn/zh/qj4zy23MSV/event/78544/register/tickets/" target="_blank" rel="noopener">https://expopromo.cn/zh/qj4zy23MSV/event/78544/register/tickets/</a></div>
+      </div>
+      <div class="ex-card" data-seg="潮玩文具" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2026中国国际毛绒玩具博览会-广州毛绒玩具展</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-05-10 ~ 2026-05-12</span>
+          <span>📍 <b>地点</b> 广州·中国进出口商品交易会展馆</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">玩具/潮玩</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.hwvips.com/?x=Nhjwg646&amp;y=b671ba5194e5a7c3c28afb4c88b3beaa" target="_blank" rel="noopener">https://www.hwvips.com/?x=Nhjwg646&amp;y=b671ba5194e5a7c3c28afb4c88b3beaa</a></div>
+      </div>
+      <div class="ex-card" data-seg="鞋配箱包" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2026 第三届义乌国际玩具与潮玩展览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-05-11 ~ 2026-05-13</span>
+          <span>📍 <b>地点</b> 义务国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">配饰</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="http://www.yiwutoyexpo.com/OnlineBuyerRegistration.html" target="_blank" rel="noopener">http://www.yiwutoyexpo.com/OnlineBuyerRegistration.html</a></div>
+      </div>
+      <div class="ex-card" data-seg="纱线针织" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">上海国际运动时尚潮服展览会GOFE/上海职业装·团服展LINK FASHION/上海牛仔展览会LINK·SDE/2026LINK FASHION针织主题展（上海）</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-05-13 ~ 2026-05-15</span>
+          <span>📍 <b>地点</b> 上海国家会展中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://zz.lisoexpo.com/web-reg-server/pc/vistor-register.html?EID=E0000000296&amp;target=1&amp;orgnum=1257&amp;pid=1048&amp;version=1&amp;cid=8262&amp;ctid=30#/index" target="_blank" rel="noopener">https://zz.lisoexpo.com/web-reg-server/pc/vistor-register.html?EID=E0000000296&amp;target=1&amp;orgnum=1257&amp;pid=1048&amp;version=1&amp;cid=8262&amp;ctid=30#/index</a></div>
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">ITCPE 2026广州国际纺织制衣及印花工业博览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-05-19 ~ 2026-05-21</span>
+          <span>📍 <b>地点</b> 广州保利世贸博览馆</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">服装、FG</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://register.allallinfo.com/exhibition/#/pages/home/index?id=1&amp;lang=Chinese" target="_blank" rel="noopener">https://register.allallinfo.com/exhibition/#/pages/home/index?id=1&amp;lang=Chinese</a></div>
+      </div>
+      <div class="ex-card" data-seg="潮玩文具" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2026中国义乌文具礼品展览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-06-03 ~ 2026-06-05</span>
+          <span>📍 <b>地点</b> 义乌国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">文具</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2026 大湾区国际纺织面料及辅料博览会 Intertextile</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-06-09 ~ 2026-06-11</span>
+          <span>📍 <b>地点</b> 深圳会展中心（福田区）</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.intertextile.com.cn" target="_blank" rel="noopener">https://www.intertextile.com.cn</a></div>
+      </div>
+      <div class="ex-card" data-seg="鞋配箱包" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2026中国（杭州）国际袜业展览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-06-24 ~ 2026-06-26</span>
+          <span>📍 <b>地点</b> 杭州国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">袜子</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="鞋配箱包" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">2026上海国际箱包展览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-06-26 ~ 2026-06-28</span>
+          <span>📍 <b>地点</b> 上海新国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">箱包</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.magicsaas.cn/index/indexopen/index/id/467/pid=728" target="_blank" rel="noopener">https://www.magicsaas.cn/index/indexopen/index/id/467/pid=728</a></div>
+      </div>
+      <div class="ex-card" data-seg="潮玩文具" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">第27届上海国际礼品、文创产品及家居用品展 (华礼展)</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-06-26 ~ 2026-06-28</span>
+          <span>📍 <b>地点</b> 上海新国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">文创</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.magicsaas.cn/index/indexopen/index/id/467/pid/680" target="_blank" rel="noopener">https://www.magicsaas.cn/index/indexopen/index/id/467/pid/680</a></div>
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">亚洲（夏季）运动用品与时尚展</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-07-03 ~ 2026-07-05</span>
+          <span>📍 <b>地点</b> 上海新国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">服装</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://ezt3.eastfair.com/dingzhi/agg-page/ispo/ispo.html?sourceCode=00005" target="_blank" rel="noopener">https://ezt3.eastfair.com/dingzhi/agg-page/ispo/ispo.html?sourceCode=00005</a></div>
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">上海国际童装展览会CBME</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-07-15 ~ 2026-07-17</span>
+          <span>📍 <b>地点</b> 上海国家会展中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">服装</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://imcs.cbmexpo.com/login?utm_medium=website&amp;utm_source=main_menu&amp;utm_campaign=gw&amp;utm_content=gw&amp;v=1778665777-28" target="_blank" rel="noopener">https://imcs.cbmexpo.com/login?utm_medium=website&amp;utm_source=main_menu&amp;utm_campaign=gw&amp;utm_content=gw&amp;v=1778665777-28</a></div>
+      </div>
+      <div class="ex-card" data-seg="潮玩文具" data-year="2026" data-status="past">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">全球授权展</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-07-15 ~ 2026-07-17</span>
+          <span>📍 <b>地点</b> 国家会展中心（上海）3号馆&amp;4.1号馆</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">玩具/潮玩</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://lecreg.licensingexpochina.com/login?utm_medium=website&amp;utm_source=button&amp;utm_campaign=pc&amp;utm_content=1" target="_blank" rel="noopener">https://lecreg.licensingexpochina.com/login?utm_medium=website&amp;utm_source=button&amp;utm_campaign=pc&amp;utm_content=1</a></div>
+      </div>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2026" data-status="upcoming">
         <div class="ex-head">
           <span class="ex-status st-upcoming">即将举办</span>
-          <h3 class="ex-name">Intertextile 秋冬面辅料展</h3>
+          <h3 class="ex-name">上海国际纺织新材料博览会</h3>
         </div>
-        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">中国国际纺织面料及辅料（秋冬）博览会 Intertextile</div>
-<div class="ex-meta"><span>📅 <b>档期</b> 2026-08-25 ~ 2026-08-27</span><span>📍 <b>城市</b> 上海</span><span>🏛️ <b>展馆</b> 国家会展中心（上海）</span></div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-08-21 ~ 2026-08-23</span>
+          <span>📍 <b>地点</b> 上海国家会展中心</span>
+        </div>
         <div class="ex-body">
-          <p><b>主办：</b>中国国际贸易促进委员会纺织行业分会、中国纺织信息中心、法兰克福展览（香港）有限公司</p>          <p><b>展品范围：</b>16 大专业展区覆盖正装、女装、休闲、功能/运动、牛仔、衬衫、皮革毛绒、内衣、婚纱礼服、婴童、花样设计、辅料、染料助剂、数智创新等。</p>          <p><b>展会亮点：</b>秋冬订货与 2027 产品开发核心窗口，与 CHIC 秋季同期同地；2025 秋冬展 123 国 10 万+ 买家到场。详见「本期重点推荐」。</p>
+          <p><b>建议参会：</b>全体</p>
         </div>
-        <div class="ex-tags"><span class="ex-tag">面辅料</span><span class="ex-tag">秋冬</span><span class="ex-tag">上海</span><span class="ex-tag">即将举办</span></div>
-<div class="ex-source">🔗 来源：<a href="https://www.intertextile.com.cn" target="_blank" rel="noopener">https://www.intertextile.com.cn</a></div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="http://www.icliexpo.com/xcl/?dengji2/" target="_blank" rel="noopener">http://www.icliexpo.com/xcl/?dengji2/</a></div>
       </div>
-      <div class="ex-card">
+      <div class="ex-card" data-seg="纱线针织" data-year="2026" data-status="upcoming">
         <div class="ex-head">
           <span class="ex-status st-upcoming">即将举办</span>
-          <h3 class="ex-name">CHIC 秋季服装展</h3>
+          <h3 class="ex-name">2026上海国际流行纱线展览会（秋冬季）</h3>
         </div>
-        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">中国国际服装服饰博览会 CHIC（秋季）</div>
-<div class="ex-meta"><span>📅 <b>档期</b> 2026-08-25 ~ 2026-08-27</span><span>📍 <b>城市</b> 上海</span><span>🏛️ <b>展馆</b> 国家会展中心（上海）2.1 / 3 馆及北馆</span></div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-08-25 ~ 2026-08-27</span>
+          <span>📍 <b>地点</b> 上海世博展览馆H3馆</span>
+        </div>
         <div class="ex-body">
-          <p><b>主办：</b>中国服装协会、中国国际贸易中心股份有限公司、中国国际贸易促进委员会纺织行业分会</p>          <p><b>展品范围：</b>以「优质供应链」为核心定位，面向品牌商、零售商、百货集团、买手店、电商与直播机构，搭建全渠道采购对接桥梁；同期举办 PH Value 针织（秋冬）、Yarnexpo 纱线（秋冬）。</p>          <p><b>展会亮点：</b>与 Intertextile 秋冬面辅料展同档期同场馆，一站式完成面辅料采购 + 成衣品牌对接，是秋冬备货与 2027 企划的关键时点。</p>
+          <p><b>建议参会：</b>吴银姬、张斌</p>
         </div>
-        <div class="ex-tags"><span class="ex-tag">服装</span><span class="ex-tag">秋冬</span><span class="ex-tag">上海</span><span class="ex-tag">即将举办</span></div>
-<div class="ex-source">🔗 来源：<a href="http://www.chic-expo.com" target="_blank" rel="noopener">http://www.chic-expo.com</a></div>
+        <div class="ex-tags"><span class="ex-tag">纱线</span></div>
+
       </div>
-      <div class="ex-card">
+      <div class="ex-card ex-featured" data-seg="纱线针织" data-year="2026" data-status="upcoming">
         <div class="ex-head">
           <span class="ex-status st-upcoming">即将举办</span>
-          <h3 class="ex-name">柯桥秋季纺博会</h3>
+          <h3 class="ex-name">中国国际服装服饰博览会2026（秋季）/intertextile中国国际纺织面料及辅料（秋冬）博览会/中国国际纺织纱线（秋冬）展览会</h3>
         </div>
-        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">2026 中国绍兴柯桥国际纺织品面辅料博览会（秋季）</div>
-<div class="ex-meta"><span>📅 <b>档期</b> 2026-11-05 ~ 2026-11-07</span><span>📍 <b>城市</b> 绍兴</span><span>🏛️ <b>展馆</b> 绍兴国际会展中心</span></div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-08-25 ~ 2026-08-27</span>
+          <span>📍 <b>地点</b> 国家会展中心（上海）</span>
+        </div>
         <div class="ex-body">
-          <p><b>主办：</b>中国轻纺城建设管理委员会、中国纺织品进出口商会等</p>          <p><b>展品范围：</b>依托全球最大纺织贸易集散地中国轻纺城，集中展示化纤面料、化纤原料、坯布、印染后整理、服装面料及辅料；4.5 万㎡、800+ 展商、5.4 万+ 参观人次。</p>          <p><b>展会亮点：</b>「世界纺织看中国，中国纺织在柯桥」。一年两届（5 月春季、11 月秋季），是坯布/化纤面料源头价格发现与集中采购的高效平台，与盛泽市场联动紧密。</p>
+          <p><b>主办：</b>中国国际贸易促进委员会纺织行业分会、中国纺织信息中心、法兰克福展览（香港）有限公司</p>
+          <p><b>展品范围：</b>16 大专业展区：正装面料、时尚女装面料、休闲装面料、功能/运动装面料、跃动牛仔、衬衫面料、皮革毛绒面料、内衣面料、婚纱/礼服面料、婴童面料、花样设计、辅料视界、染料助剂、数智创新、相关产品及服务、媒体资讯。</p>
+          <p><b>展会亮点：</b>自 1995 年创办，享誉全球。2025 秋冬展吸引韩国、印度、日本、俄罗斯、美国、意大利、法国、土耳其、巴西、埃及、阿联酋等 123 个国家和地区 100,000+ 专业买家。特别设置「数智创新展区」，为展商与观众提供数字化、智能化技术升级方向。</p>
+          <p><b>同期活动：</b>2025 秋冬同期设「行业洞察区 / 对话纺织区 / 可持续发展区 / 热点交流区」四大论坛区，举办近 100 场研讨活动，现场+线上辐射超 10 万人次。</p>
+          <p><b>报名/联系：</b>报名：东纺云智（苏州）互联科技有限公司 ｜ 盛泽镇市场路东方纺织城 5 楼 D 区 ｜ 金立 13776166566 / 付永明 15995558318 / 丁钰 13771691221 / 金辉 15995536368 / 沈斐 13771661148 / 彭晶晶 13915400812 / 张琳 13616254708</p>
+          <p><b>建议参会：</b>全体</p>
         </div>
-        <div class="ex-tags"><span class="ex-tag">面料</span><span class="ex-tag">坯布</span><span class="ex-tag">绍兴</span><span class="ex-tag">即将举办</span></div>
-<div class="ex-source">🔗 来源：<a href="https://www.ctcte.com" target="_blank" rel="noopener">https://www.ctcte.com</a></div>
+        <div class="ex-tags"><span class="ex-tag feat">重点</span><span class="ex-tag">面辅料</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://ezt3.eastfair.com/pc/#/registration?registerLinkId=2062418316402700290&amp;sourceCode=Web" target="_blank" rel="noopener">https://ezt3.eastfair.com/pc/#/registration?registerLinkId=2062418316402700290&amp;sourceCode=Web</a></div>
       </div>
-      </div>
-    </section>
-    <section class="cat" id="overseas-2026">
-      <div class="cat-head">
-        <h2 class="cat-title">2026 重点境外展会</h2>
-        <p class="cat-desc">南美 / 中东 / 亚太出海窗口（日期以官方最终公布为准，建议出行前复核）</p>
-        <span class="cat-count">6 场</span>
-      </div>
-      <div class="ex-grid">
-      <div class="ex-card">
+      <div class="ex-card" data-seg="潮玩文具" data-year="2026" data-status="upcoming">
         <div class="ex-head">
           <span class="ex-status st-upcoming">即将举办</span>
-          <h3 class="ex-name">GOTEX 巴西展</h3>
+          <h3 class="ex-name">第5届深圳国际文创展 &amp; 潮玩展 (IPX 潮玩展)</h3>
         </div>
-        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">巴西圣保罗国际纺织服装采购展 GOTEX</div>
-<div class="ex-meta"><span>📅 <b>档期</b> 2026-09-23 ~ 2026-09-25</span><span>📍 <b>城市</b> 圣保罗</span><span>🏛️ <b>展馆</b> 巴西圣保罗</span></div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-08-26 ~ 2026-08-28</span>
+          <span>📍 <b>地点</b> 深圳国际会展中心（宝安）</span>
+        </div>
         <div class="ex-body">
-          <p><b>主办：</b>中国国际贸易促进委员会纺织行业分会、中国（巴西）投资开发贸易中心</p>          <p><b>展品范围：</b>面料、辅料、运动装、服装、纱线与纤维、配饰、内衣、家居服、泳装等全产业链；汇聚巴西、秘鲁、孟加拉、意大利、中国等 220+ 国际展商。</p>          <p><b>展会亮点：</b>拉丁美洲最具影响力的纺织服装采购平台，以巴西为中心对接中南美市场；2025 届吸引 7,000+ 专业买家，现场成交额超 2,000 万雷亚尔。</p>
+          <p><b>建议参会：</b>鲜伟</p>
         </div>
-        <div class="ex-tags"><span class="ex-tag">出海</span><span class="ex-tag">南美</span><span class="ex-tag">面辅料</span><span class="ex-tag">即将举办</span></div>
-<div class="ex-source">🔗 来源：<a href="https://www.qffairs.com/sys-pd/253.html" target="_blank" rel="noopener">https://www.qffairs.com/sys-pd/253.html</a></div>
+        <div class="ex-tags"><span class="ex-tag">潮玩</span></div>
+
       </div>
-      <div class="ex-card">
+      <div class="ex-card" data-seg="面辅料服装" data-year="2026" data-status="upcoming">
         <div class="ex-head">
           <span class="ex-status st-upcoming">即将举办</span>
-          <h3 class="ex-name">IATF 迪拜展</h3>
+          <h3 class="ex-name">2026中国（上海）国际皮革展览会</h3>
         </div>
-        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">中东迪拜国际服装纺织及家纺展 IATF（秋季）</div>
-<div class="ex-meta"><span>📅 <b>档期</b> 2026-11-16 ~ 2026-11-18</span><span>📍 <b>城市</b> 迪拜</span><span>🏛️ <b>展馆</b> 迪拜世界贸易中心</span></div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-09-01 ~ 2026-09-03</span>
+          <span>📍 <b>地点</b> 上海新国际博览中心</span>
+        </div>
         <div class="ex-body">
-          <p><b>主办：</b>英国国研会展集团 IIR</p>          <p><b>展品范围：</b>时尚服装、面料、纺织机械、配件和辅料、家纺全品类；3 万㎡、720+ 展商、3.7 万+ 观众，覆盖中东、非洲及南亚买家。</p>          <p><b>展会亮点：</b>中东最大纺织服装 B2B 平台，海湾国家战略门户；阿联酋年转口商品约 1,200 亿美元，是中企进入中东与北非市场的高效跳板。</p>
+          <p><b>建议参会：</b>全体</p>
         </div>
-        <div class="ex-tags"><span class="ex-tag">出海</span><span class="ex-tag">中东</span><span class="ex-tag">转口</span><span class="ex-tag">即将举办</span></div>
-<div class="ex-source">🔗 来源：<a href="https://www.samexpo.cn/jwfzfzl" target="_blank" rel="noopener">https://www.samexpo.cn/jwfzfzl</a></div>
+        <div class="ex-tags"><span class="ex-tag">面辅料</span></div>
+
       </div>
-      <div class="ex-card">
+      <div class="ex-card" data-seg="质量设备" data-year="2026" data-status="upcoming">
         <div class="ex-head">
           <span class="ex-status st-upcoming">即将举办</span>
-          <h3 class="ex-name">APTEXPO 新加坡</h3>
+          <h3 class="ex-name">国际纺织品洗涤、皮革护理、清洁技术与设备亚洲展览会</h3>
         </div>
-        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">亚太纺织服装供应链博览会 APTEXPO 2026</div>
-<div class="ex-meta"><span>📅 <b>档期</b> 2026-11-11 ~ 2026-11-13</span><span>📍 <b>城市</b> 新加坡</span><span>🏛️ <b>展馆</b> 新加坡</span></div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-09-21 ~ 2026-09-23</span>
+          <span>📍 <b>地点</b> 上海新国际博览中心</span>
+        </div>
         <div class="ex-body">
-          <p><b>主办：</b>亚太区纺织服装行业机构</p>          <p><b>展品范围：</b>纺织、服装及供应链服务，聚焦区域供应链协同与可持续采购。</p>          <p><b>展会亮点：</b>面向东南亚制造与品牌枢纽，适合布局东盟产能与采购网络的企业。</p>
+          <p><b>建议参会：</b>茆荣雷、王凯</p>
         </div>
-        <div class="ex-tags"><span class="ex-tag">出海</span><span class="ex-tag">亚太</span><span class="ex-tag">供应链</span><span class="ex-tag">即将举办</span></div>
-<div class="ex-source">🔗 来源：<a href="https://www.samexpo.cn/jwfzfzl" target="_blank" rel="noopener">https://www.samexpo.cn/jwfzfzl</a></div>
+        <div class="ex-tags"><span class="ex-tag">设备</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://oa.tonggao.info/CN/Customer/front?projectCode=ecb27962d85953f7&amp;source=txcacleweb" target="_blank" rel="noopener">https://oa.tonggao.info/CN/Customer/front?projectCode=ecb27962d85953f7&amp;source=txcacleweb</a></div>
       </div>
-      <div class="ex-card">
+      <div class="ex-card" data-seg="纱线针织" data-year="2026" data-status="upcoming">
         <div class="ex-head">
           <span class="ex-status st-upcoming">即将举办</span>
-          <h3 class="ex-name">墨尔本展</h3>
+          <h3 class="ex-name">2026上海国际功能性纺织品（秋冬）展览会</h3>
         </div>
-        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">澳大利亚中国纺织服装服饰展（墨尔本）</div>
-<div class="ex-meta"><span>📅 <b>档期</b> 2026-11-18 ~ 2026-11-20</span><span>📍 <b>城市</b> 墨尔本</span><span>🏛️ <b>展馆</b> 澳大利亚墨尔本</span></div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-09-22 ~ 2026-09-23</span>
+          <span>📍 <b>地点</b> 上海世博展览馆H3馆</span>
+        </div>
         <div class="ex-body">
-          <p><b>主办：</b>中国纺织品进出口商会等</p>          <p><b>展品范围：</b>服装、面料及服饰全产业链，面向澳洲本土零售与品牌采购。</p>          <p><b>展会亮点：</b>进入大洋洲市场的重点窗口，与迪拜展档期衔接便于连展出海。</p>
+          <p><b>建议参会：</b>全体</p>
         </div>
-        <div class="ex-tags"><span class="ex-tag">出海</span><span class="ex-tag">澳洲</span><span class="ex-tag">即将举办</span></div>
-<div class="ex-source">🔗 来源：<a href="https://www.samexpo.cn/jwfzfzl" target="_blank" rel="noopener">https://www.samexpo.cn/jwfzfzl</a></div>
+        <div class="ex-tags"><span class="ex-tag">功能性面料、辅料、纱线</span></div>
+
       </div>
-      <div class="ex-card">
+      <div class="ex-card" data-seg="出海" data-year="2026" data-status="upcoming">
         <div class="ex-head">
           <span class="ex-status st-upcoming">即将举办</span>
-          <h3 class="ex-name">EXPOTEXTILE 秘鲁</h3>
+          <h3 class="ex-name">巴西圣保罗国际纺织服装采购展 GOTEX</h3>
         </div>
-        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">秘鲁国际纺织及服装工业展 EXPOTEXTILE PERU</div>
-<div class="ex-meta"><span>📅 <b>档期</b> 2026-11-05 ~ 2026-11-08</span><span>📍 <b>城市</b> 利马</span><span>🏛️ <b>展馆</b> 秘鲁利马</span></div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-09-23 ~ 2026-09-25</span>
+          <span>📍 <b>地点</b> 巴西圣保罗</span>
+        </div>
         <div class="ex-body">
-          <p><b>主办：</b>秘鲁纺织行业机构</p>          <p><b>展品范围：</b>纺织面辅料、纺机、服装及配饰，覆盖南美西岸采购需求。</p>          <p><b>展会亮点：</b>南美西岸重要纺织工业展，与 GOTEX 形成南美双支点布局。</p>
+          <p><b>建议参会：</b>出海</p>
         </div>
-        <div class="ex-tags"><span class="ex-tag">出海</span><span class="ex-tag">南美</span><span class="ex-tag">即将举办</span></div>
-<div class="ex-source">🔗 来源：<a href="https://www.samexpo.cn/jwfzfzl" target="_blank" rel="noopener">https://www.samexpo.cn/jwfzfzl</a></div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装（出海）</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.qffairs.com/sys-pd/253.html" target="_blank" rel="noopener">https://www.qffairs.com/sys-pd/253.html</a></div>
       </div>
-      <div class="ex-card">
+      <div class="ex-card" data-seg="出海" data-year="2026" data-status="upcoming">
         <div class="ex-head">
           <span class="ex-status st-upcoming">即将举办</span>
-          <h3 class="ex-name">FASHION WORLD 东京</h3>
+          <h3 class="ex-name">日本东京国际服装服饰采购展 FASHION WORLD</h3>
         </div>
-        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">日本东京国际服装服饰采购展 FASHION WORLD</div>
-<div class="ex-meta"><span>📅 <b>档期</b> 2026-10-07 ~ 2026-10-09</span><span>📍 <b>城市</b> 东京</span><span>🏛️ <b>展馆</b> 日本东京</span></div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-10-07 ~ 2026-10-09</span>
+          <span>📍 <b>地点</b> 日本东京</span>
+        </div>
         <div class="ex-body">
-          <p><b>主办：</b>日本纺织服装行业机构</p>          <p><b>展品范围：</b>服装、面料、服饰、鞋类，聚焦高端设计与品质供应链。</p>          <p><b>展会亮点：</b>进入日本及东亚高端零售渠道的重要平台，注重设计与品质合规。</p>
+          <p><b>建议参会：</b>出海</p>
         </div>
-        <div class="ex-tags"><span class="ex-tag">出海</span><span class="ex-tag">日本</span><span class="ex-tag">即将举办</span></div>
-<div class="ex-source">🔗 来源：<a href="https://www.samexpo.cn/jwfzfzl" target="_blank" rel="noopener">https://www.samexpo.cn/jwfzfzl</a></div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装（出海）</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.samexpo.cn/jwfzfzl" target="_blank" rel="noopener">https://www.samexpo.cn/jwfzfzl</a></div>
       </div>
+      <div class="ex-card" data-seg="潮玩文具" data-year="2026" data-status="upcoming">
+        <div class="ex-head">
+          <span class="ex-status st-upcoming">即将举办</span>
+          <h3 class="ex-name">2026 CTE中国玩具展/ 潮玩展</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-10-21 ~ 2026-10-23</span>
+          <span>📍 <b>地点</b> 上海新国际博览中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">玩具/潮玩</span></div>
+<div class="ex-source">📝 报名方式：暂未开放链接的，待刷新</div>
       </div>
-    </section>
+      <div class="ex-card" data-seg="面辅料服装" data-year="2026" data-status="upcoming">
+        <div class="ex-head">
+          <span class="ex-status st-upcoming">即将举办</span>
+          <h3 class="ex-name">2026 中国绍兴柯桥国际纺织品面辅料博览会（秋季）</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-11-05 ~ 2026-11-07</span>
+          <span>📍 <b>地点</b> 绍兴国际会展中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>全体</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.ctcte.com" target="_blank" rel="noopener">https://www.ctcte.com</a></div>
+      </div>
+      <div class="ex-card" data-seg="出海" data-year="2026" data-status="upcoming">
+        <div class="ex-head">
+          <span class="ex-status st-upcoming">即将举办</span>
+          <h3 class="ex-name">秘鲁国际纺织及服装工业展 EXPOTEXTILE PERU</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-11-05 ~ 2026-11-08</span>
+          <span>📍 <b>地点</b> 秘鲁利马</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>出海</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装（出海）</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.samexpo.cn/jwfzfzl" target="_blank" rel="noopener">https://www.samexpo.cn/jwfzfzl</a></div>
+      </div>
+      <div class="ex-card" data-seg="出海" data-year="2026" data-status="upcoming">
+        <div class="ex-head">
+          <span class="ex-status st-upcoming">即将举办</span>
+          <h3 class="ex-name">亚太纺织服装供应链博览会 APTEXPO 2026</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-11-11 ~ 2026-11-13</span>
+          <span>📍 <b>地点</b> 新加坡</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>出海</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装（出海）</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.samexpo.cn/jwfzfzl" target="_blank" rel="noopener">https://www.samexpo.cn/jwfzfzl</a></div>
+      </div>
+      <div class="ex-card" data-seg="出海" data-year="2026" data-status="upcoming">
+        <div class="ex-head">
+          <span class="ex-status st-upcoming">即将举办</span>
+          <h3 class="ex-name">中东迪拜国际服装纺织及家纺展 IATF（秋季）</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-11-16 ~ 2026-11-18</span>
+          <span>📍 <b>地点</b> 迪拜世界贸易中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>出海</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装（出海）</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.samexpo.cn/jwfzfzl" target="_blank" rel="noopener">https://www.samexpo.cn/jwfzfzl</a></div>
+      </div>
+      <div class="ex-card" data-seg="出海" data-year="2026" data-status="upcoming">
+        <div class="ex-head">
+          <span class="ex-status st-upcoming">即将举办</span>
+          <h3 class="ex-name">澳大利亚中国纺织服装服饰展（墨尔本）</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-11-18 ~ 2026-11-20</span>
+          <span>📍 <b>地点</b> 澳大利亚墨尔本</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>出海</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料、服装（出海）</span></div>
+<div class="ex-source">🔗 报名/详情：<a href="https://www.samexpo.cn/jwfzfzl" target="_blank" rel="noopener">https://www.samexpo.cn/jwfzfzl</a></div>
+      </div>
+      <div class="ex-card" data-seg="质量设备" data-year="2026" data-status="upcoming">
+        <div class="ex-head">
+          <span class="ex-status st-upcoming">即将举办</span>
+          <h3 class="ex-name">中国国际纺织机械展览会暨ITMA亚洲展览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-11-20 ~ 2026-11-24</span>
+          <span>📍 <b>地点</b> 上海国家会展中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>茆荣雷、王凯、陈国玲</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">设备</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="潮玩文具" data-year="2026" data-status="upcoming">
+        <div class="ex-head">
+          <span class="ex-status st-upcoming">即将举办</span>
+          <h3 class="ex-name">上海国际文具及办公用品展览会</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 2026-11-22 ~ 2026-11-24</span>
+          <span>📍 <b>地点</b> 上海世博展览馆</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">文具</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="潮玩文具" data-year="待定" data-status="待定">
+        <div class="ex-head">
+          <span class="ex-status st-tbd">待定</span>
+          <h3 class="ex-name">PTS北京国际潮流玩具展「POP TOY SHOW BEIJING」</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 档期待定</span>
+          <span>📍 <b>地点</b> 北京国家会议中心</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">玩具/潮玩</span></div>
+
+      </div>
+      <div class="ex-card" data-seg="潮玩文具" data-year="待定" data-status="待定">
+        <div class="ex-head">
+          <span class="ex-status st-tbd">待定</span>
+          <h3 class="ex-name">千岛QDF潮玩展</h3>
+        </div>
+        <div class="ex-meta">
+          <span>📅 <b>档期</b> 档期待定</span>
+          <span>📍 <b>地点</b> 上海新国际博览中心 N1-N3</span>
+        </div>
+        <div class="ex-body">
+          <p><b>建议参会：</b>鲜伟</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">玩具/潮玩</span></div>
+
+      </div>
+  </div>
 
 </div>
 
 <footer class="footer">
-  <div class="update-info">最后更新：<strong>2026-07-30</strong> ｜ 共收录 <strong>13</strong> 场展会（即将举办 10 场）</div>
+  <div class="update-info">最后更新：<strong>2026-07-30</strong> ｜ 共收录 <strong>100</strong> 场展会（即将举办 17 场）</div>
   <div class="copyright">纺织服装展会信息库 · 供应链中心 · Powered by 内网知识库</div>
 </footer>
 
 <script>
+
 // 返回门户：默认内网路由 /，公网环境退回 GitHub Pages 门户
 if (location.hostname === 'jovienne0913.github.io') {
   document.getElementById('backToPortal').setAttribute('href', 'https://jovienne0913.github.io/supply-chain-knowledge-hub/');
 }
+// 筛选：品类 + 年份
+(function(){
+  var fseg='all', fyear='all';
+  function apply(){
+    var cards = document.querySelectorAll('.ex-card');
+    var shown=0;
+    cards.forEach(function(c){
+      var okS = fseg==='all' || c.dataset.seg===fseg;
+      var okY = fyear==='all' || String(c.dataset.year)===fyear;
+      var ok = okS && okY;
+      c.style.display = ok ? '' : 'none';
+      if(ok) shown++;
+    });
+    var cnt = document.getElementById('resultCount');
+    if(cnt) cnt.textContent = shown;
+  }
+  document.querySelectorAll('[data-seg-btn]').forEach(function(b){
+    b.addEventListener('click', function(){
+      fseg = b.getAttribute('data-seg-btn');
+      document.querySelectorAll('[data-seg-btn]').forEach(function(x){x.classList.remove('active');});
+      b.classList.add('active');
+      apply();
+    });
+  });
+  document.querySelectorAll('[data-year-btn]').forEach(function(b){
+    b.addEventListener('click', function(){
+      fyear = b.getAttribute('data-year-btn');
+      document.querySelectorAll('[data-year-btn]').forEach(function(x){x.classList.remove('active');});
+      b.classList.add('active');
+      apply();
+    });
+  });
+})();
+
 </script>
 
 <div class="sc-gate-mask" id="scGate" role="dialog" aria-modal="true" aria-label="身份核验">
