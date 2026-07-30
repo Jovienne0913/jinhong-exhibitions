@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>纺织服装展会信息库 · 知识库</title>
+<style>
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root{
+    --brand-900:#0B2E59; --brand-700:#14489E; --brand-600:#2563EB; --brand-500:#3B82F6;
+    --brand-100:#EFF4FF; --ink-900:#0F172A; --ink-700:#334155; --ink-500:#64748B; --ink-400:#94A3B8;
+    --line:#E6EDF6; --bg:#F4F7FC; --r-lg:16px; --r-md:12px; --r-pill:999px;
+    --sh-sm:0 1px 3px rgba(15,23,42,.06); --sh-md:0 10px 28px rgba(15,23,42,.10);
+    --ease:cubic-bezier(.4,0,.2,1);
+  }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--ink-900); line-height: 1.7; min-height: 100vh; }
+  a { color: var(--brand-600); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .kb-topbar { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.82); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .kb-topbar-in { max-width: 1080px; margin: 0 auto; padding: 12px 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+  .kb-home { display: flex; align-items: center; gap: 9px; font-weight: 700; color: var(--brand-900); font-size: 15px; transition: opacity .15s; }
+  .kb-home:hover { text-decoration: none; opacity: .8; }
+  .kb-home-logo { width: 32px; height: 32px; border-radius: 9px; background: linear-gradient(135deg, var(--brand-500), var(--brand-700)); display: flex; align-items: center; justify-content: center; font-size: 17px; box-shadow: 0 6px 16px rgba(37,99,235,.3); }
+  .kb-status { font-size: 12px; font-weight: 600; color: var(--brand-700); background: var(--brand-100); border: 1px solid #D6E4FB; border-radius: var(--r-pill); padding: 5px 12px; }
+  .header { background: linear-gradient(135deg, var(--brand-900) 0%, var(--brand-700) 100%); color: #fff; padding: 2rem 1.5rem 1.6rem; text-align: center; position: relative; }
+  .header::before { content:""; position:absolute; top:0; left:0; right:0; height:4px; background: linear-gradient(90deg, #3B82F6, #14489E); }
+  .header h1 { font-size: 1.7rem; font-weight: 800; letter-spacing: 0.01em; margin-bottom: 0.4rem; }
+  .header .subtitle { font-size: 0.92rem; opacity: 0.9; max-width: 720px; margin: 0 auto; line-height: 1.6; }
+  .header .badge { display: inline-block; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.32); border-radius: 20px; padding: 0.22rem 0.8rem; font-size: 0.75rem; margin-top: 0.7rem; backdrop-filter: blur(4px); }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+  .sc-overview { background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); padding:20px 24px; margin:1.5rem 0 18px; box-shadow:var(--sh-sm); }
+  .sc-overview .ov-title { font-size:13px; font-weight:700; color:var(--brand-700); letter-spacing:.04em; margin-bottom:14px; display:flex; align-items:center; gap:6px; }
+  .sc-ov-stats { display:flex; flex-wrap:wrap; gap:28px; }
+  .sc-ov-stat { display:flex; flex-direction:column; }
+  .sc-ov-stat b { font-size:24px; font-weight:800; color:var(--brand-900); line-height:1.1; }
+  .sc-ov-stat span { font-size:12px; color:var(--ink-500); margin-top:4px; }
+  .cat-nav { position:sticky; top:56px; z-index:40; display:flex; flex-wrap:wrap; gap:10px; margin:0 0 18px; padding:10px 0; border-bottom:1px solid var(--line); background:rgba(255,255,255,.92); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
+  .cat-nav a { padding:0.4rem 0.9rem; border:1px solid var(--line); border-radius:var(--r-pill); font-size:0.82rem; font-weight:600; color:var(--ink-700); background:#fff; transition:all .15s; }
+  .cat-nav a:hover { border-color:var(--brand-500); color:var(--brand-600); text-decoration:none; }
+  .cat { margin-bottom: 2rem; }
+  .cat-head { display:flex; align-items:baseline; flex-wrap:wrap; gap:0.6rem; margin: 1.2rem 0 1rem; border-left: 4px solid var(--brand-600); padding-left: 0.8rem; }
+  .cat-title { font-size: 1.18rem; font-weight: 700; color: var(--brand-900); }
+  .cat-desc { font-size: 0.85rem; color: var(--ink-500); flex: 1; min-width: 200px; }
+  .cat-count { font-size: 0.78rem; font-weight: 700; color: var(--brand-600); background: var(--brand-100); border:1px solid #bfdbfe; border-radius: var(--r-pill); padding: 0.15rem 0.7rem; }
+  .ex-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(340px,1fr)); gap: 1.1rem; }
+  .ex-card { background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); padding:1.15rem 1.2rem; box-shadow:var(--sh-sm); transition:box-shadow .2s, transform .2s; display:flex; flex-direction:column; }
+  .ex-card:hover { box-shadow:var(--sh-md); transform: translateY(-3px); }
+  .ex-head { display:flex; flex-wrap:wrap; align-items:center; gap:0.5rem; margin-bottom:0.5rem; }
+  .ex-status { font-size:0.68rem; font-weight:700; padding:0.15rem 0.5rem; border-radius:6px; letter-spacing:0.03em; }
+  .st-upcoming { background:#ECFDF5; color:#059669; border:1px solid #A7F3D0; }
+  .st-past { background:#F1F5F9; color:#64748B; border:1px solid #E2E8F0; }
+  .ex-name { font-size:1rem; font-weight:700; color:var(--ink-900); line-height:1.4; flex:1; min-width:160px; }
+  .ex-meta { display:flex; flex-wrap:wrap; gap:0.4rem 1rem; font-size:0.8rem; color:var(--ink-700); margin-bottom:0.5rem; }
+  .ex-meta b { color:var(--brand-900); }
+  .ex-body { font-size:0.84rem; color:var(--ink-700); }
+  .ex-body p { margin-bottom:0.4rem; }
+  .ex-body b { color:var(--brand-900); }
+  .ex-tags { display:flex; flex-wrap:wrap; gap:0.35rem; margin-top:0.55rem; }
+  .ex-tag { font-size:0.7rem; color:var(--ink-700); background:#F1F5F9; border:1px solid var(--line); border-radius:6px; padding:0.1rem 0.45rem; }
+  .ex-source { margin-top:0.6rem; font-size:0.76rem; }
+  .ex-source a { color:var(--brand-600); word-break:break-all; }
+  .footer { text-align:center; padding: 2rem 1rem; border-top:1px solid var(--line); background:#fff; }
+  .footer .update-info { font-size:0.85rem; color:var(--ink-400); }
+  .footer .update-info strong { color:var(--ink-700); }
+  .footer .copyright { font-size:0.78rem; color:#CBD5E0; margin-top:0.5rem; }
+
+/* ===== 供应链知识库门禁 (形态A：后端真门禁；前端仅渲染 UX) ===== */
+:root{
+  --brand-900:#0B2E59; --brand-700:#14489E; --brand-600:#2563EB; --brand-500:#3B82F6;
+  --brand-100:#EFF4FF; --ink-900:#0F172A; --ink-700:#334155; --ink-500:#64748B;
+  --line:#E6EDF6; --danger:#DC2626; --ease:cubic-bezier(.4,0,.2,1);
+}
+.sc-gate-mask{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;background:rgba(15,23,42,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-family:inherit;animation:scFade .25s var(--ease);}
+@keyframes scFade{from{opacity:0}to{opacity:1}}
+.sc-gate-card{width:380px;max-width:92vw;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(11,46,89,.30);position:relative;animation:scPop .28s var(--ease);}
+@keyframes scPop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+.sc-gate-card::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#3B82F6,#14489E);}
+.sc-gate-body{padding:32px 28px 26px;text-align:center;}
+.sc-gate-logo{width:56px;height:56px;margin:0 auto 14px;border-radius:14px;background:linear-gradient(135deg,#3B82F6,#14489E);display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 8px 20px rgba(37,99,235,.35);}
+.sc-gate-title{font-size:18px;font-weight:700;color:var(--ink-900);margin-bottom:6px;}
+.sc-gate-sub{font-size:13px;color:var(--ink-500);margin-bottom:18px;line-height:1.5;}
+/* 员工身份核验 */
+.sc-gate-emp{margin:4px auto 6px;max-width:300px;}
+.sc-gate-input{width:100%;padding:13px 14px;border:1.5px solid #CBD5E1;border-radius:12px;font-size:15px;font-family:inherit;margin-bottom:10px;outline:none;transition:border-color .15s,box-shadow .15s;box-sizing:border-box;background:#FBFCFE;text-align:center;letter-spacing:.12em;}
+.sc-gate-input:focus{border-color:#2563EB;box-shadow:0 0 0 4px rgba(37,99,235,.15);}
+.sc-gate-err{font-size:12.5px;color:var(--danger);min-height:18px;margin-top:2px;font-weight:500;}
+.sc-gate-err.shake{animation:scShake .4s var(--ease);}
+@keyframes scShake{10%,90%{transform:translateX(-1px)}20%,80%{transform:translateX(2px)}30%,50%,70%{transform:translateX(-4px)}40%,60%{transform:translateX(4px)}}
+.sc-gate-divider{display:flex;align-items:center;gap:10px;color:var(--ink-400);font-size:12px;margin:8px 0;}
+.sc-gate-divider::before,.sc-gate-divider::after{content:"";flex:1;height:1px;background:#EDF1F8;}
+/* 企业微信扫码（仅在配置企微凭据时显示） */
+.sc-gate-qr{position:relative;width:200px;height:200px;margin:0 auto 14px;border:1px solid #EDF1F8;border-radius:12px;padding:12px;background:#fff;}
+.sc-gate-qr svg{width:100%;height:100%;display:block;border-radius:4px;}
+.sc-gate-qr iframe{width:100%;height:100%;border:0;border-radius:6px;display:block;}
+.sc-gate-qr .qr-mask{position:absolute;inset:12px;display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:rgba(255,255,255,.93);border-radius:8px;font-size:14px;font-weight:600;color:#334155;}
+.sc-gate-qr.state-scanned .qr-mask,.sc-gate-qr.state-success .qr-mask,.sc-gate-qr.state-expired .qr-mask{display:flex;}
+.sc-gate-qr .qr-badge{font-size:44px;line-height:1;}
+.sc-gate-qr.state-success .qr-badge{color:#10B981;}
+.sc-gate-qr.state-scanned .qr-badge{color:#2563EB;}
+.sc-gate-qr.state-expired .qr-badge{color:#F59E0B;}
+.sc-gate-qr .qr-fallback{position:absolute;left:0;right:0;bottom:-22px;font-size:11px;text-align:center;}
+.sc-gate-qr .qr-fallback a{color:#2563EB;text-decoration:none;}
+.sc-ent-card{display:none;align-items:center;gap:12px;text-align:left;margin:2px auto 16px;padding:12px 14px;border:1px solid #BFD7FB;border-radius:12px;background:#EFF4FF;max-width:290px;}
+.sc-gate-qr.state-success ~ .sc-ent-card{display:flex;}
+.sc-ent-ico{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#3B82F6,#14489E);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.sc-ent-info .t{font-size:11px;color:var(--ink-500);}
+.sc-ent-info .n{font-size:15px;font-weight:700;color:var(--brand-900);line-height:1.3;}
+.sc-ent-info .v{font-size:12px;color:#10B981;font-weight:600;}
+.sc-gate-hint{font-size:13px;color:var(--ink-500);margin-bottom:14px;min-height:20px;}
+.sc-gate-hint b{color:var(--brand-600);}
+.sc-gate-btn{display:block;width:100%;padding:13px;border:none;border-radius:12px;cursor:pointer;background:linear-gradient(135deg,#3B82F6,#14489E);color:#fff;font-size:15px;font-weight:600;font-family:inherit;transition:transform .15s,box-shadow .15s;}
+.sc-gate-btn:hover:not([disabled]){transform:translateY(-1px);box-shadow:0 10px 24px rgba(37,99,235,.4);}
+.sc-gate-btn:focus-visible{outline:3px solid #fff;outline-offset:2px;}
+.sc-gate-btn[disabled]{opacity:.6;cursor:not-allowed;}
+.sc-gate-demo{display:none;margin-top:14px;font-size:12px;color:var(--ink-400);}
+.sc-gate-demo a{color:#2563EB;cursor:pointer;text-decoration:none;}
+.sc-gate-demo a:hover{text-decoration:underline;}
+.sc-gate-foot{font-size:11px;color:#CBD5E1;margin-top:8px;}
+@media (max-width:480px){.sc-gate-card{width:100%;max-width:100vw;height:100vh;border-radius:0;display:flex;flex-direction:column;justify-content:center;}}
+@media (prefers-reduced-motion:reduce){.sc-gate-mask{animation:none;}.sc-gate-card{animation:none;}.sc-gate-err.shake{animation:none;}}
+
+</style>
+</head>
+<body>
+
+<header class="kb-topbar">
+  <div class="kb-topbar-in">
+    <a class="kb-home" id="backToPortal" href="/"><span class="kb-home-logo">🗓️</span> 纺织服装展会信息库</a>
+    <span class="kb-status">🔒 工号验证 · 内部</span>
+  </div>
+</header>
+
+<header class="header">
+  <h1>纺织服装展会信息库</h1>
+  <p class="subtitle">2026 全球纺织服装展会日历 · 面辅料 / 服装 / 纱线 / 针织全链路采购窗口</p>
+  <span class="badge">🗓️ 展会信息库 · 持续刷新</span>
+</header>
+
+<div class="container">
+  <div class="sc-overview">
+    <div class="ov-title">📊 展会台账概览</div>
+    <div class="sc-ov-stats">
+      <div class="sc-ov-stat"><b>13</b><span>收录展会</span></div>
+      <div class="sc-ov-stat"><b>10</b><span>即将举办</span></div>
+      <div class="sc-ov-stat"><b>3</b><span>分类板块</span></div>
+      <div class="sc-ov-stat"><b>2026-07-30</b><span>最近更新</span></div>
+    </div>
+  </div>
+
+  <nav class="cat-nav">
+    <a href="#featured">本期重点推荐</a><a href="#domestic-2026">2026 国内重点展会</a><a href="#overseas-2026">2026 重点境外展会</a>
+  </nav>
+
+    <section class="cat" id="featured">
+      <div class="cat-head">
+        <h2 class="cat-title">本期重点推荐</h2>
+        <p class="cat-desc">基于《布工厂》7·30 推文解读，8 月上海秋冬面辅料采购核心窗口</p>
+        <span class="cat-count">1 场</span>
+      </div>
+      <div class="ex-grid">
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-status st-upcoming">即将举办</span>
+          <h3 class="ex-name">Intertextile 秋冬面辅料展</h3>
+        </div>
+        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">2026 Intertextile 中国国际纺织面料及辅料（秋冬）博览会</div>
+<div class="ex-meta"><span>📅 <b>档期</b> 2026-08-25 ~ 2026-08-27</span><span>📍 <b>城市</b> 上海</span><span>🏛️ <b>展馆</b> 国家会展中心（上海）</span></div>
+        <div class="ex-body">
+          <p><b>主办：</b>中国国际贸易促进委员会纺织行业分会、中国纺织信息中心、法兰克福展览（香港）有限公司</p>          <p><b>展品范围：</b>16 大专业展区：正装面料、时尚女装面料、休闲装面料、功能/运动装面料、跃动牛仔、衬衫面料、皮革毛绒面料、内衣面料、婚纱/礼服面料、婴童面料、花样设计、辅料视界、染料助剂、数智创新、相关产品及服务、媒体资讯。</p>          <p><b>展会亮点：</b>自 1995 年创办，享誉全球。2025 秋冬展吸引韩国、印度、日本、俄罗斯、美国、意大利、法国、土耳其、巴西、埃及、阿联酋等 123 个国家和地区 100,000+ 专业买家。特别设置「数智创新展区」，为展商与观众提供数字化、智能化技术升级方向。</p>          <p><b>同期活动：</b>2025 秋冬同期设「行业洞察区 / 对话纺织区 / 可持续发展区 / 热点交流区」四大论坛区，举办近 100 场研讨活动，现场+线上辐射超 10 万人次。</p>          <p><b>报名/联系：</b>报名：东纺云智（苏州）互联科技有限公司 ｜ 盛泽镇市场路东方纺织城 5 楼 D 区 ｜ 金立 13776166566 / 付永明 15995558318 / 丁钰 13771691221 / 金辉 15995536368 / 沈斐 13771661148 / 彭晶晶 13915400812 / 张琳 13616254708</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料</span><span class="ex-tag">秋冬</span><span class="ex-tag">全球买家</span><span class="ex-tag">数智创新</span><span class="ex-tag">上海</span></div>
+<div class="ex-source">🔗 来源：<a href="https://mp.weixin.qq.com/s/gG52FyZGaj1S-LmiSM7HGw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/gG52FyZGaj1S-LmiSM7HGw</a></div>
+      </div>
+      </div>
+    </section>
+    <section class="cat" id="domestic-2026">
+      <div class="cat-head">
+        <h2 class="cat-title">2026 国内重点展会</h2>
+        <p class="cat-desc">Intertextile / CHIC 全国联展系列 + 柯桥纺博会，覆盖面辅料到成衣全链路</p>
+        <span class="cat-count">6 场</span>
+      </div>
+      <div class="ex-grid">
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">Intertextile 春夏面辅料展</h3>
+        </div>
+        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">中国国际纺织面料及辅料（春夏）博览会 Intertextile</div>
+<div class="ex-meta"><span>📅 <b>档期</b> 2026-03-11 ~ 2026-03-13</span><span>📍 <b>城市</b> 上海</span><span>🏛️ <b>展馆</b> 国家会展中心（上海）</span></div>
+        <div class="ex-body">
+          <p><b>主办：</b>中国国际贸易促进委员会纺织行业分会、中国纺织信息中心、法兰克福展览（香港）有限公司</p>          <p><b>展品范围：</b>7 大展馆、19 万㎡，集结全球 25 个国家和地区 3,000+ 展商；16 大专业展区覆盖女装、功能/运动、正装、休闲、牛仔、衬衫、皮革毛绒、内衣、婴童、婚纱礼服、数智创新、辅料视界等；8 大特色产业集群（绍兴、海宁许村、湖州、盛泽、晋江、图木舒克等）。</p>          <p><b>展会亮点：</b>与中国纺联春季联展联动 CHIC、Yarnexpo 纱线展、PH Value 针织展、intertextile 家纺展，实现纤维到成品全链对接。首发 2027 春夏流行趋势，设可持续创新专区、新技术创新空间、数字时尚创新空间、宠物服饰「萌宠时尚」专区。</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料</span><span class="ex-tag">春夏</span><span class="ex-tag">上海</span><span class="ex-tag">已闭幕</span></div>
+<div class="ex-source">🔗 来源：<a href="https://www.intertextile.com.cn" target="_blank" rel="noopener">https://www.intertextile.com.cn</a></div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">CHIC 春季服装展</h3>
+        </div>
+        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">中国国际服装服饰博览会 CHIC（春季）</div>
+<div class="ex-meta"><span>📅 <b>档期</b> 2026-03-11 ~ 2026-03-13</span><span>📍 <b>城市</b> 上海</span><span>🏛️ <b>展馆</b> 国家会展中心（上海）1.1 / 2.1 / 3 / 4.1 馆及北馆</span></div>
+        <div class="ex-body">
+          <p><b>主办：</b>中国服装协会、中国国际贸易中心股份有限公司、中国国际贸易促进委员会纺织行业分会</p>          <p><b>展品范围：</b>12 大展区：品质男装、最美女装、国风服饰、冬季时装、户外运动、牛仔世界、设计力量、数智时尚、先锋潮流、童装与校服、配饰鞋包、CHIC 环球风尚展。</p>          <p><b>展会亮点：</b>亚洲最具规模与影响力的服装服饰专业品牌博览会，2026 春季以「找春天」为主题，11.7 万㎡、1,250+ 企业、17.8 万专业观众；与 Intertextile 春夏同期同地举办，品牌与面辅料高效联动。</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">服装</span><span class="ex-tag">春夏</span><span class="ex-tag">上海</span><span class="ex-tag">已闭幕</span></div>
+<div class="ex-source">🔗 来源：<a href="http://www.chic-expo.com" target="_blank" rel="noopener">http://www.chic-expo.com</a></div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-status st-past">已闭幕</span>
+          <h3 class="ex-name">Intertextile 大湾区展</h3>
+        </div>
+        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">大湾区国际纺织面料及辅料博览会 Intertextile</div>
+<div class="ex-meta"><span>📅 <b>档期</b> 2026-06-09 ~ 2026-06-11</span><span>📍 <b>城市</b> 深圳</span><span>🏛️ <b>展馆</b> 深圳会展中心（福田区）</span></div>
+        <div class="ex-body">
+          <p><b>主办：</b>法兰克福展览（香港）有限公司、中国国际贸易促进委员会纺织行业分会、中国纺织信息中心</p>          <p><b>展品范围：</b>面向粤港澳大湾区及华南产业集群的面辅料专业展，与大湾区国际纺织纱线展同期举办，聚焦快反供应链与时尚设计。</p>          <p><b>展会亮点：</b>承接春夏与秋冬之间的补单、开发窗口，便于华南品牌与面辅料供应商就近对接。</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料</span><span class="ex-tag">大湾区</span><span class="ex-tag">深圳</span><span class="ex-tag">已闭幕</span></div>
+<div class="ex-source">🔗 来源：<a href="https://www.intertextile.com.cn" target="_blank" rel="noopener">https://www.intertextile.com.cn</a></div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-status st-upcoming">即将举办</span>
+          <h3 class="ex-name">Intertextile 秋冬面辅料展</h3>
+        </div>
+        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">中国国际纺织面料及辅料（秋冬）博览会 Intertextile</div>
+<div class="ex-meta"><span>📅 <b>档期</b> 2026-08-25 ~ 2026-08-27</span><span>📍 <b>城市</b> 上海</span><span>🏛️ <b>展馆</b> 国家会展中心（上海）</span></div>
+        <div class="ex-body">
+          <p><b>主办：</b>中国国际贸易促进委员会纺织行业分会、中国纺织信息中心、法兰克福展览（香港）有限公司</p>          <p><b>展品范围：</b>16 大专业展区覆盖正装、女装、休闲、功能/运动、牛仔、衬衫、皮革毛绒、内衣、婚纱礼服、婴童、花样设计、辅料、染料助剂、数智创新等。</p>          <p><b>展会亮点：</b>秋冬订货与 2027 产品开发核心窗口，与 CHIC 秋季同期同地；2025 秋冬展 123 国 10 万+ 买家到场。详见「本期重点推荐」。</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面辅料</span><span class="ex-tag">秋冬</span><span class="ex-tag">上海</span><span class="ex-tag">即将举办</span></div>
+<div class="ex-source">🔗 来源：<a href="https://www.intertextile.com.cn" target="_blank" rel="noopener">https://www.intertextile.com.cn</a></div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-status st-upcoming">即将举办</span>
+          <h3 class="ex-name">CHIC 秋季服装展</h3>
+        </div>
+        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">中国国际服装服饰博览会 CHIC（秋季）</div>
+<div class="ex-meta"><span>📅 <b>档期</b> 2026-08-25 ~ 2026-08-27</span><span>📍 <b>城市</b> 上海</span><span>🏛️ <b>展馆</b> 国家会展中心（上海）2.1 / 3 馆及北馆</span></div>
+        <div class="ex-body">
+          <p><b>主办：</b>中国服装协会、中国国际贸易中心股份有限公司、中国国际贸易促进委员会纺织行业分会</p>          <p><b>展品范围：</b>以「优质供应链」为核心定位，面向品牌商、零售商、百货集团、买手店、电商与直播机构，搭建全渠道采购对接桥梁；同期举办 PH Value 针织（秋冬）、Yarnexpo 纱线（秋冬）。</p>          <p><b>展会亮点：</b>与 Intertextile 秋冬面辅料展同档期同场馆，一站式完成面辅料采购 + 成衣品牌对接，是秋冬备货与 2027 企划的关键时点。</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">服装</span><span class="ex-tag">秋冬</span><span class="ex-tag">上海</span><span class="ex-tag">即将举办</span></div>
+<div class="ex-source">🔗 来源：<a href="http://www.chic-expo.com" target="_blank" rel="noopener">http://www.chic-expo.com</a></div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-status st-upcoming">即将举办</span>
+          <h3 class="ex-name">柯桥秋季纺博会</h3>
+        </div>
+        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">2026 中国绍兴柯桥国际纺织品面辅料博览会（秋季）</div>
+<div class="ex-meta"><span>📅 <b>档期</b> 2026-11-05 ~ 2026-11-07</span><span>📍 <b>城市</b> 绍兴</span><span>🏛️ <b>展馆</b> 绍兴国际会展中心</span></div>
+        <div class="ex-body">
+          <p><b>主办：</b>中国轻纺城建设管理委员会、中国纺织品进出口商会等</p>          <p><b>展品范围：</b>依托全球最大纺织贸易集散地中国轻纺城，集中展示化纤面料、化纤原料、坯布、印染后整理、服装面料及辅料；4.5 万㎡、800+ 展商、5.4 万+ 参观人次。</p>          <p><b>展会亮点：</b>「世界纺织看中国，中国纺织在柯桥」。一年两届（5 月春季、11 月秋季），是坯布/化纤面料源头价格发现与集中采购的高效平台，与盛泽市场联动紧密。</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">面料</span><span class="ex-tag">坯布</span><span class="ex-tag">绍兴</span><span class="ex-tag">即将举办</span></div>
+<div class="ex-source">🔗 来源：<a href="https://www.ctcte.com" target="_blank" rel="noopener">https://www.ctcte.com</a></div>
+      </div>
+      </div>
+    </section>
+    <section class="cat" id="overseas-2026">
+      <div class="cat-head">
+        <h2 class="cat-title">2026 重点境外展会</h2>
+        <p class="cat-desc">南美 / 中东 / 亚太出海窗口（日期以官方最终公布为准，建议出行前复核）</p>
+        <span class="cat-count">6 场</span>
+      </div>
+      <div class="ex-grid">
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-status st-upcoming">即将举办</span>
+          <h3 class="ex-name">GOTEX 巴西展</h3>
+        </div>
+        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">巴西圣保罗国际纺织服装采购展 GOTEX</div>
+<div class="ex-meta"><span>📅 <b>档期</b> 2026-09-23 ~ 2026-09-25</span><span>📍 <b>城市</b> 圣保罗</span><span>🏛️ <b>展馆</b> 巴西圣保罗</span></div>
+        <div class="ex-body">
+          <p><b>主办：</b>中国国际贸易促进委员会纺织行业分会、中国（巴西）投资开发贸易中心</p>          <p><b>展品范围：</b>面料、辅料、运动装、服装、纱线与纤维、配饰、内衣、家居服、泳装等全产业链；汇聚巴西、秘鲁、孟加拉、意大利、中国等 220+ 国际展商。</p>          <p><b>展会亮点：</b>拉丁美洲最具影响力的纺织服装采购平台，以巴西为中心对接中南美市场；2025 届吸引 7,000+ 专业买家，现场成交额超 2,000 万雷亚尔。</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">出海</span><span class="ex-tag">南美</span><span class="ex-tag">面辅料</span><span class="ex-tag">即将举办</span></div>
+<div class="ex-source">🔗 来源：<a href="https://www.qffairs.com/sys-pd/253.html" target="_blank" rel="noopener">https://www.qffairs.com/sys-pd/253.html</a></div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-status st-upcoming">即将举办</span>
+          <h3 class="ex-name">IATF 迪拜展</h3>
+        </div>
+        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">中东迪拜国际服装纺织及家纺展 IATF（秋季）</div>
+<div class="ex-meta"><span>📅 <b>档期</b> 2026-11-16 ~ 2026-11-18</span><span>📍 <b>城市</b> 迪拜</span><span>🏛️ <b>展馆</b> 迪拜世界贸易中心</span></div>
+        <div class="ex-body">
+          <p><b>主办：</b>英国国研会展集团 IIR</p>          <p><b>展品范围：</b>时尚服装、面料、纺织机械、配件和辅料、家纺全品类；3 万㎡、720+ 展商、3.7 万+ 观众，覆盖中东、非洲及南亚买家。</p>          <p><b>展会亮点：</b>中东最大纺织服装 B2B 平台，海湾国家战略门户；阿联酋年转口商品约 1,200 亿美元，是中企进入中东与北非市场的高效跳板。</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">出海</span><span class="ex-tag">中东</span><span class="ex-tag">转口</span><span class="ex-tag">即将举办</span></div>
+<div class="ex-source">🔗 来源：<a href="https://www.samexpo.cn/jwfzfzl" target="_blank" rel="noopener">https://www.samexpo.cn/jwfzfzl</a></div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-status st-upcoming">即将举办</span>
+          <h3 class="ex-name">APTEXPO 新加坡</h3>
+        </div>
+        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">亚太纺织服装供应链博览会 APTEXPO 2026</div>
+<div class="ex-meta"><span>📅 <b>档期</b> 2026-11-11 ~ 2026-11-13</span><span>📍 <b>城市</b> 新加坡</span><span>🏛️ <b>展馆</b> 新加坡</span></div>
+        <div class="ex-body">
+          <p><b>主办：</b>亚太区纺织服装行业机构</p>          <p><b>展品范围：</b>纺织、服装及供应链服务，聚焦区域供应链协同与可持续采购。</p>          <p><b>展会亮点：</b>面向东南亚制造与品牌枢纽，适合布局东盟产能与采购网络的企业。</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">出海</span><span class="ex-tag">亚太</span><span class="ex-tag">供应链</span><span class="ex-tag">即将举办</span></div>
+<div class="ex-source">🔗 来源：<a href="https://www.samexpo.cn/jwfzfzl" target="_blank" rel="noopener">https://www.samexpo.cn/jwfzfzl</a></div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-status st-upcoming">即将举办</span>
+          <h3 class="ex-name">墨尔本展</h3>
+        </div>
+        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">澳大利亚中国纺织服装服饰展（墨尔本）</div>
+<div class="ex-meta"><span>📅 <b>档期</b> 2026-11-18 ~ 2026-11-20</span><span>📍 <b>城市</b> 墨尔本</span><span>🏛️ <b>展馆</b> 澳大利亚墨尔本</span></div>
+        <div class="ex-body">
+          <p><b>主办：</b>中国纺织品进出口商会等</p>          <p><b>展品范围：</b>服装、面料及服饰全产业链，面向澳洲本土零售与品牌采购。</p>          <p><b>展会亮点：</b>进入大洋洲市场的重点窗口，与迪拜展档期衔接便于连展出海。</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">出海</span><span class="ex-tag">澳洲</span><span class="ex-tag">即将举办</span></div>
+<div class="ex-source">🔗 来源：<a href="https://www.samexpo.cn/jwfzfzl" target="_blank" rel="noopener">https://www.samexpo.cn/jwfzfzl</a></div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-status st-upcoming">即将举办</span>
+          <h3 class="ex-name">EXPOTEXTILE 秘鲁</h3>
+        </div>
+        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">秘鲁国际纺织及服装工业展 EXPOTEXTILE PERU</div>
+<div class="ex-meta"><span>📅 <b>档期</b> 2026-11-05 ~ 2026-11-08</span><span>📍 <b>城市</b> 利马</span><span>🏛️ <b>展馆</b> 秘鲁利马</span></div>
+        <div class="ex-body">
+          <p><b>主办：</b>秘鲁纺织行业机构</p>          <p><b>展品范围：</b>纺织面辅料、纺机、服装及配饰，覆盖南美西岸采购需求。</p>          <p><b>展会亮点：</b>南美西岸重要纺织工业展，与 GOTEX 形成南美双支点布局。</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">出海</span><span class="ex-tag">南美</span><span class="ex-tag">即将举办</span></div>
+<div class="ex-source">🔗 来源：<a href="https://www.samexpo.cn/jwfzfzl" target="_blank" rel="noopener">https://www.samexpo.cn/jwfzfzl</a></div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-status st-upcoming">即将举办</span>
+          <h3 class="ex-name">FASHION WORLD 东京</h3>
+        </div>
+        <div style="font-size:0.78rem;color:var(--ink-400);margin-bottom:0.4rem;">日本东京国际服装服饰采购展 FASHION WORLD</div>
+<div class="ex-meta"><span>📅 <b>档期</b> 2026-10-07 ~ 2026-10-09</span><span>📍 <b>城市</b> 东京</span><span>🏛️ <b>展馆</b> 日本东京</span></div>
+        <div class="ex-body">
+          <p><b>主办：</b>日本纺织服装行业机构</p>          <p><b>展品范围：</b>服装、面料、服饰、鞋类，聚焦高端设计与品质供应链。</p>          <p><b>展会亮点：</b>进入日本及东亚高端零售渠道的重要平台，注重设计与品质合规。</p>
+        </div>
+        <div class="ex-tags"><span class="ex-tag">出海</span><span class="ex-tag">日本</span><span class="ex-tag">即将举办</span></div>
+<div class="ex-source">🔗 来源：<a href="https://www.samexpo.cn/jwfzfzl" target="_blank" rel="noopener">https://www.samexpo.cn/jwfzfzl</a></div>
+      </div>
+      </div>
+    </section>
+
+</div>
+
+<footer class="footer">
+  <div class="update-info">最后更新：<strong>2026-07-30</strong> ｜ 共收录 <strong>13</strong> 场展会（即将举办 10 场）</div>
+  <div class="copyright">纺织服装展会信息库 · 供应链中心 · Powered by 内网知识库</div>
+</footer>
+
+<script>
+// 返回门户：默认内网路由 /，公网环境退回 GitHub Pages 门户
+if (location.hostname === 'jovienne0913.github.io') {
+  document.getElementById('backToPortal').setAttribute('href', 'https://jovienne0913.github.io/supply-chain-knowledge-hub/');
+}
+</script>
+
+<div class="sc-gate-mask" id="scGate" role="dialog" aria-modal="true" aria-label="身份核验">
+  <div class="sc-gate-card">
+    <div class="sc-gate-body">
+      <div class="sc-gate-logo">🔐</div>
+      <div class="sc-gate-title">锦泓供应链知识库 · 身份核验</div>
+
+      <div class="sc-gate-emp" id="scGateEmp">
+        <input type="text" id="scGateEmpId" class="sc-gate-input" placeholder="工号" inputmode="numeric" maxlength="8" autocomplete="off" />
+        <button class="sc-gate-btn" id="scGateEmpBtn">验证进入</button>
+        <div class="sc-gate-err" id="scGateErr"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+// ===== 供应链知识库门禁 (形态A：后端真门禁；前端仅渲染 UX) =====
+// 主形态：8 位工号(103 开头) 核验，后端记载
+// 备选：配置企微凭据扫码 / 演示模式(无后端预览)
+(function(){
+  function $(id){return document.getElementById(id);}
+  var GATE = window.KB_GATE || {wecom:false, code:false, employee:true, mock:true};
+
+  function removeMask(){
+    var m=$('scGate');if(!m)return;
+    m.style.transition='opacity .25s';m.style.opacity='0';
+    setTimeout(function(){
+      if(m.parentNode)m.parentNode.removeChild(m);
+      if(m.getAttribute('data-shell'))window.location.reload();
+    },250);
+  }
+  function authed(){removeMask();}
+  function showErr(msg){var e=$('scGateErr');if(e){e.textContent=msg||'';if(msg){e.classList.remove('shake');void e.offsetWidth;e.classList.add('shake');}}}
+  function setHint(html){var h=$('scGateHint');if(h)h.innerHTML=html;}
+  function hideWecom(){var qr=$('scGateQr');if(qr)qr.style.display='none';var d=$('scGateDivider');if(d)d.style.display='none';}
+  function focusCard(){try{var f=$('scGate').querySelector('.sc-gate-card');if(f){f.setAttribute('tabindex','-1');f.focus();}}catch(e){}}
+
+  // 工号核验
+  function startEmp(demo){
+    hideWecom();
+    var idI=$('scGateEmpId'), btn=$('scGateEmpBtn');
+    if(!idI||!btn)return;
+    function submit(){
+      var id=idI.value.trim();
+      if(!/^103\d{5}$/.test(id)){showErr('工号无效');return;}
+      if(demo){ showErr(''); authed(); return; }
+      showErr(''); btn.disabled=true; btn.textContent='验证中…';
+      fetch('/api/auth/employee',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({emp_id:id}),credentials:'same-origin'})
+        .then(function(r){return r.json().then(function(d){return {ok:r.ok&&d.ok,d:d};});})
+        .then(function(res){
+          if(res.ok){ authed(); }
+          else { showErr((res.d&&res.d.msg)||'验证失败'); btn.disabled=false; btn.textContent='验证进入'; }
+        })
+        .catch(function(){ showErr('网络异常，无法连接门禁服务'); btn.disabled=false; btn.textContent='验证进入'; });
+    }
+    btn.onclick=submit;
+    idI.addEventListener('keydown',function(e){if(e.key==='Enter')submit();});
+    idI.focus();
+  }
+
+  // 演示模式（无后端 / ?demo=1）
+  function showDemo(){
+    var d=$('scGateDemo');if(d)d.style.display='block';
+    hideWecom();
+    var de=$('scGateDemoEnter');
+    if(de)de.onclick=function(){
+      var id=$('scGateEmpId');
+      if(id&&/^103\d{5}$/.test(id.value.trim())){ showErr(''); authed(); }
+      else showErr('工号无效');
+    };
+    startEmp(true);
+  }
+
+  // 企业微信扫码（仅在配置企微凭据时）
+  function qrSVG(){
+    var N=25, cell=100/N, parts=['<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">','<rect width="100" height="100" fill="#fff"/>'];
+    var seed=20260730;
+    function rnd(){seed=(seed*1103515245+12345)&0x7fffffff;return seed/0x7fffffff;}
+    function finder(x,y){
+      parts.push('<rect x="'+(x*cell)+'" y="'+(y*cell)+'" width="'+(7*cell)+'" height="'+(7*cell)+'" fill="#1f2937"/>');
+      parts.push('<rect x="'+((x+1)*cell)+'" y="'+((y+1)*cell)+'" width="'+(5*cell)+'" height="'+(5*cell)+'" fill="#fff"/>');
+      parts.push('<rect x="'+((x+2)*cell)+'" y="'+((y+2)*cell)+'" width="'+(3*cell)+'" height="'+(3*cell)+'" fill="#1f2937"/>');
+    }
+    for(var y=0;y<N;y++){for(var x=0;x<N;x++){
+      if((x<8&&y<8)||(x>N-9&&y<8)||(x<8&&y>N-9))continue;
+      if(rnd()>0.55){parts.push('<rect x="'+(x*cell)+'" y="'+(y*cell)+'" width="'+cell+'" height="'+cell+'" fill="#1f2937"/>');}
+    }}
+    finder(0,0);finder(N-7,0);finder(0,N-7);
+    parts.push('</svg>');return parts.join('');
+  }
+  function setQRState(s,badge,txt){
+    var qr=$('scGateQr');if(!qr)return;
+    qr.className='sc-gate-qr state-'+s;
+    var b=$('scGateBadge'),t=$('scGateMaskTxt');
+    if(b)b.textContent=badge;if(t)t.textContent=txt;
+  }
+  function poll(ticket){
+    var iv=setInterval(function(){
+      fetch('/api/auth/wecom/status?ticket='+encodeURIComponent(ticket),{credentials:'same-origin'})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(d.state==='scanned'){setQRState('scanned','✓','已在手机端扫描，请确认');setHint('已扫描 · 请在手机端点击<b>确认</b>');}
+        else if(d.state==='expired'){clearInterval(iv);setQRState('expired','!','二维码已过期');}
+        else if(d.state==='success'){clearInterval(iv);setHint('验证通过 · 正在进入…');authed();}
+      }).catch(function(){});
+    },2000);
+  }
+  function startWecom(ticket,loginUrl){
+    var qr=$('scGateQr');if(!qr)return;
+    qr.style.display='block';
+    qr.innerHTML='<iframe src="'+loginUrl+'" title="企业微信扫码登录" style="width:100%;height:100%;border:0;border-radius:6px;"></iframe>'
+      +'<div class="qr-fallback"><a href="'+loginUrl+'" target="_blank" rel="noopener">无法显示？点此在新窗口扫码</a></div>';
+    setHint('请使用企业微信 App 扫描上方二维码');
+    poll(ticket);
+  }
+
+  function isStaticHost(){
+    var h=location.hostname;
+    return h.indexOf('github.io')>=0 || h==='localhost' || h==='127.0.0.1' || h==='0.0.0.0';
+  }
+
+  function init(){
+    var mask=$('scGate');if(!mask)return;
+    if(/[?&]demo=1/.test(location.search)||isStaticHost()){showDemo();focusCard();return;}
+    fetch('/api/auth/me',{credentials:'same-origin'})
+      .then(function(r){return r.status===200?r.json().then(function(d){return{ok:true,d:d};}):{ok:false};})
+      .then(function(res){
+        if(res.ok){authed();return;}
+        return fetch('/api/auth/config',{credentials:'same-origin'})
+          .then(function(r){return r.json();})
+          .then(function(cfg){
+            GATE=cfg||GATE;
+            if(cfg&&cfg.employee){ startEmp(false); }
+            else if(cfg&&cfg.wecom){ fetch('/api/auth/wecom/qrcode',{credentials:'same-origin'}).then(function(r){return r.json();}).then(function(d){startWecom(d.ticket,d.login_url);}).catch(function(){showDemo();}); }
+            else { showDemo(); }
+          })
+          .catch(function(){ showDemo(); });
+      })
+      .catch(function(){ showDemo(); });
+    focusCard();
+  }
+  if(document.readyState!=='loading')init();else document.addEventListener('DOMContentLoaded',init);
+})();
+
+</body>
+</html>
